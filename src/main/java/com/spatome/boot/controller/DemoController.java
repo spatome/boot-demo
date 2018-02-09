@@ -19,7 +19,7 @@ public class DemoController extends BaseController {
 
     	LOGGER.info("this is demo/test");
 
-    	result.setBody(new SSVO("boot.demo"));
+    	result.setBody(new SSVO("boot.demo集群0"));
 
         return result;
     }
