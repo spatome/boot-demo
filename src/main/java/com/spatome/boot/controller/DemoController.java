@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.spatome.boot.vo.BaseVO;
 import com.spatome.boot.vo.SSVO;
 
 @RestController

@@ -11,8 +11,6 @@ import com.spatome.boot.service.DemoService;
 @Service
 public class ServiceFactoryImpl implements ServiceFactory {
 
-/*	@Autowired
-	private ApplicationContext applicationContext;*/
 	@Autowired
 	private DemoService demoServiceImpl;
 
@@ -20,10 +18,5 @@ public class ServiceFactoryImpl implements ServiceFactory {
 	public DemoService getDemoService() {
 		return demoServiceImpl;
 	}
-
-/*	@Override
-	public ApplicationContext getApplicationContext() {
-		return applicationContext;
-	}*/
 
 }
