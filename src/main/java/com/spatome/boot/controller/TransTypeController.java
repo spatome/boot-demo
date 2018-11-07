@@ -12,22 +12,31 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.spatome.boot.service.TranService;
-import com.spatome.boot.util.SpringUtil;
+import com.spatome.boot.util.spring.SpringUtil;
+
+import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping(value = "/process")
+@Slf4j
 public class TransTypeController extends BaseController {
 
 	@RequestMapping(value = "{transType}", method = RequestMethod.POST)
-	public Object process(@PathVariable String transType, @RequestParam Map<String, String> dataMap,
-			HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public Object process(
+			@PathVariable
+			String transType,
+			@RequestParam
+			Map<String, String> inMap,
+			HttpServletRequest request,
+			HttpServletResponse response
+		) throws Exception {
+		log.debug("==>"+inMap);
 		Object result = null;
-
 		try {
 			Object bean = SpringUtil.getApplicationContext().getBean("tran" + transType + "ServiceImpl");
-			result = ((TranService) bean).execute(dataMap, request, response);
+			result = ((TranService) bean).execute(inMap, request, response);
 		} catch (Exception e) {
-			LOGGER.error("transType{}data{}", transType, dataMap);
+			log.error("transType{}data{}", transType, inMap);
 			throw e;
 		}
 

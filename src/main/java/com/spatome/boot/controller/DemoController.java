@@ -10,17 +10,18 @@ import org.springframework.web.bind.annotation.RestController;
 import com.spatome.boot.vo.BaseVO;
 import com.spatome.boot.vo.SSVO;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
 @RequestMapping("demo")
+@Slf4j
 public class DemoController extends BaseController {
 
     @RequestMapping(value = "test", method = RequestMethod.GET)
     public Object test(HttpServletRequest request, HttpServletResponse response) {
     	BaseVO<SSVO> result = new BaseVO<SSVO>();
 
-    	LOGGER.info("this is demo/test");
-
-    	result.setBody(new SSVO("boot.demo"));
+    	log.info("请求uri:"+request.getRequestURI());
 
         return result;
     }

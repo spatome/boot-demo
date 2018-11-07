@@ -25,27 +25,19 @@
 	</properties>
 
 	<dependencies>
-		<!-- 配置文件 -->
+		<!-- spring boot -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
-		</dependency>
-		<!-- thymeleaf包含WEB, WEB包含starter -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<!-- <artifactId>spring-boot-starter-thymeleaf</artifactId> -->
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
 		</dependency>
 
 		<!-- 依赖的公共类库 -->
@@ -117,6 +109,12 @@
 		    <version>0.9.1</version>
 		</dependency>
 
+		<!-- 注解（日志 get set）相关 -->
+		<dependency>
+		   <groupId>org.projectlombok</groupId>
+		   <artifactId>lombok</artifactId>
+		</dependency>		
+
 		<!-- 数据库 -->
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
@@ -139,21 +137,29 @@
 		    <version>5.0.4</version>
 		</dependency>
 
-		<!-- 注解（日志 get set）相关 -->
+		<!-- 热部署 -->
 		<dependency>
-		   <groupId>org.projectlombok</groupId>
-		   <artifactId>lombok</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-devtools</artifactId>
+		    <optional>true</optional> <!-- 这个需要为 true 热部署才有效 -->
 		</dependency>
 	</dependencies>
 
 	<build>
+		<finalName>boot-demo</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-	                <fork>true</fork>
-	            </configuration>
+                <configuration>
+                    <fork>true</fork>
+                    <jvmArguments>-Dfile.encoding=UTF-8</jvmArguments>
+                </configuration>
 			</plugin>
 		</plugins>
 	</build>
