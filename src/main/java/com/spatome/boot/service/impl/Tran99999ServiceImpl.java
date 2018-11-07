@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.spatome.boot.service.TranService;
 import com.spatome.boot.vo.BaseVO;
@@ -21,7 +20,6 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class Tran99999ServiceImpl extends BaseService implements TranService {
 
-	@Transactional
 	@Override
 	public Object execute(Map<String, String> dataMap, HttpServletRequest request, HttpServletResponse response) {
 		BaseVO<Object> result = new BaseVO<Object>();
