@@ -28,6 +28,11 @@ springboot 启动原理B(refresh)
 (1)
 **/
 
+/*@SpringBootApplication
+@PropertySources(@PropertySource("classpath:simple.properties"))
+@Import(ImportService.class)
+@ImportResource("classpath:import.xml")*/
+
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 @ComponentScan("com.spatome.boot")
 public class BootApplication {
