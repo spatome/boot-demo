@@ -1,0 +1,11 @@
+#工厂加载机制
+#启动时扫描所有jar包的META-INF
+#格式：接口=\自定义实现类
+
+#自定义上下文
+org.springframework.context.ApplicationContextInitializer=\
+	com.spatome.boot.source.callback.SimpleApplicationContextInitializer
+
+#监听ApplicationEvent
+org.springframework.context.ApplicationListener=\
+	com.spatome.boot.source.listener.SimpleApplicationListener
