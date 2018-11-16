@@ -1,2 +1,14 @@
+#spring:
+#  profiles:
+#    include:
+#      - share
+
 server:
-  port: 9950
+  port: 8080
+
+spring:
+  application:
+    name: boot-source-test
+
+spatome:
+  user-name: zw
