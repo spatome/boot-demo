@@ -12,3 +12,4 @@ spring:
 
 spatome:
   user-name: zw
+  password: 123456

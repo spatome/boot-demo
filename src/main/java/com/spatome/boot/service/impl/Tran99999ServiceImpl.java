@@ -6,7 +6,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.spatome.boot.common.config.SpatomeConfig;
@@ -34,7 +33,9 @@ public class Tran99999ServiceImpl extends BaseService implements TranService {
 		super.checkNotEmpty(paramMap);
 
 		log.debug("===========================业务处理=========================");
+		result.setMessage(SpatomeConfig.getPassword());
 		result.setBody(SpatomeConfig.getUserName());
+		
 
 		return result;
 	}
