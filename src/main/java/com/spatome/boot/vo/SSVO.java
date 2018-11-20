@@ -1,27 +1,12 @@
 package com.spatome.boot.vo;
 
-import java.io.Serializable;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
-/**
- * 只有一个字符串值
- */
-public class SSVO implements Serializable {
-	private static final long serialVersionUID = 1L;
+@Data
+@AllArgsConstructor
+public class SSVO {
 
 	private String value;
 
-	public SSVO() {
-	}
-
-	public SSVO(String value) {
-		this.value = value;
-	}
-
-	public String getValue() {
-		return value;
-	}
-
-	public void setValue(String value) {
-		this.value = value;
-	}
 }

@@ -1,0 +1,6 @@
+server:
+  port: 8060
+
+spatome:
+  user-name: zw
+  zw-count: 3

@@ -1,0 +1,485 @@
+2017-09-26 15:44:01.735  INFO 8616 --- [restartedMain] com.spatome.boot.BootApplication         : Starting BootApplication on zhangwei-PC with PID 8616 (F:\workspace\boot\target\classes started by zhangwei in F:\workspace\boot)
+2017-09-26 15:44:01.736  INFO 8616 --- [restartedMain] com.spatome.boot.BootApplication         : No active profile set, falling back to default profiles: default
+2017-09-26 15:44:02.151  INFO 8616 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@234f8af7: startup date [Tue Sep 26 15:44:02 CST 2017]; root of context hierarchy
+2017-09-26 15:44:04.225  INFO 8616 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2017-09-26 15:44:04.236  INFO 8616 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2017-09-26 15:44:04.238  INFO 8616 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2017-09-26 15:44:04.340  INFO 8616 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/boot]   : Initializing Spring embedded WebApplicationContext
+2017-09-26 15:44:04.340  INFO 8616 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2196 ms
+2017-09-26 15:44:04.531  INFO 8616 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2017-09-26 15:44:04.537  INFO 8616 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-09-26 15:44:04.538  INFO 8616 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-09-26 15:44:04.539  INFO 8616 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-09-26 15:44:04.539  INFO 8616 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2017-09-26 15:44:05.033  INFO 8616 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@234f8af7: startup date [Tue Sep 26 15:44:02 CST 2017]; root of context hierarchy
+2017-09-26 15:44:05.108  INFO 8616 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/demo/test],methods=[GET]}" onto public java.lang.Object com.spatome.boot.controller.DemoController.test(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-09-26 15:44:05.110  INFO 8616 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/login],methods=[POST]}" onto public java.lang.Object com.spatome.boot.controller.UserController.login(com.spatome.boot.vo.LoginRVO)
+2017-09-26 15:44:05.113  INFO 8616 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-09-26 15:44:05.114  INFO 8616 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-09-26 15:44:05.185  INFO 8616 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-09-26 15:44:05.186  INFO 8616 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-09-26 15:44:05.208  INFO 8616 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in baseController
+2017-09-26 15:44:05.209  INFO 8616 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in demoController
+2017-09-26 15:44:05.210  INFO 8616 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in userController
+2017-09-26 15:44:05.242  INFO 8616 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-09-26 15:44:05.288  WARN 8616 --- [restartedMain] .t.AbstractTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2017-09-26 15:44:05.919  INFO 8616 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2017-09-26 15:44:05.994  INFO 8616 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-09-26 15:44:06.136  INFO 8616 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2017-09-26 15:44:06.143  INFO 8616 --- [restartedMain] com.spatome.boot.BootApplication         : Started BootApplication in 4.763 seconds (JVM running for 5.38)
+2018-02-09 09:21:08.267  INFO 9000 --- [restartedMain] com.spatome.boot.BootApplication         : Starting BootApplication on zhangwei-PC with PID 9000 (F:\workspace\boot\target\classes started by zhangwei in F:\workspace\boot)
+2018-02-09 09:21:08.338  INFO 9000 --- [restartedMain] com.spatome.boot.BootApplication         : No active profile set, falling back to default profiles: default
+2018-02-09 09:21:10.640  INFO 9000 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7dd605ea: startup date [Fri Feb 09 09:21:10 CST 2018]; root of context hierarchy
+2018-02-09 09:21:17.521  INFO 9000 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2018-02-09 09:21:17.581  INFO 9000 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-02-09 09:21:17.584  INFO 9000 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2018-02-09 09:21:17.978  INFO 9000 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-02-09 09:21:17.978  INFO 9000 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 7356 ms
+2018-02-09 09:21:18.540  INFO 9000 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-09 09:21:18.548  INFO 9000 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-09 09:21:18.549  INFO 9000 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-09 09:21:18.550  INFO 9000 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-09 09:21:18.551  INFO 9000 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-09 09:21:20.012  INFO 9000 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7dd605ea: startup date [Fri Feb 09 09:21:10 CST 2018]; root of context hierarchy
+2018-02-09 09:21:20.191  INFO 9000 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/demo/test],methods=[GET]}" onto public java.lang.Object com.spatome.boot.controller.DemoController.test(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-09 09:21:20.194  INFO 9000 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/login],methods=[POST]}" onto public java.lang.Object com.spatome.boot.controller.UserController.login(com.spatome.boot.vo.LoginRVO)
+2018-02-09 09:21:20.199  INFO 9000 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-09 09:21:20.200  INFO 9000 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-09 09:21:20.274  INFO 9000 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-09 09:21:20.275  INFO 9000 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-09 09:21:20.313  INFO 9000 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in baseController
+2018-02-09 09:21:20.314  INFO 9000 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in demoController
+2018-02-09 09:21:20.314  INFO 9000 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in userController
+2018-02-09 09:21:20.369  INFO 9000 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-09 09:21:20.457  WARN 9000 --- [restartedMain] .t.AbstractTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2018-02-09 09:21:22.315  INFO 9000 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-02-09 09:21:22.827  INFO 9000 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-02-09 09:21:23.049  INFO 9000 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2018-02-09 09:21:23.059  INFO 9000 --- [restartedMain] com.spatome.boot.BootApplication         : Started BootApplication in 16.142 seconds (JVM running for 18.159)
+2018-02-09 09:23:49.968  INFO 8100 --- [restartedMain] com.spatome.boot.BootApplication         : Starting BootApplication on zhangwei-PC with PID 8100 (F:\workspace\boot\target\classes started by zhangwei in F:\workspace\boot)
+2018-02-09 09:23:49.971  INFO 8100 --- [restartedMain] com.spatome.boot.BootApplication         : No active profile set, falling back to default profiles: default
+2018-02-09 09:23:50.622  INFO 8100 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@37d3f0d6: startup date [Fri Feb 09 09:23:50 CST 2018]; root of context hierarchy
+2018-02-09 09:23:54.498  INFO 8100 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8060 (http)
+2018-02-09 09:23:54.525  INFO 8100 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-02-09 09:23:54.527  INFO 8100 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2018-02-09 09:23:54.783  INFO 8100 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-02-09 09:23:54.784  INFO 8100 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4169 ms
+2018-02-09 09:23:55.124  INFO 8100 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-09 09:23:55.133  INFO 8100 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-09 09:23:55.134  INFO 8100 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-09 09:23:55.134  INFO 8100 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-09 09:23:55.134  INFO 8100 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-09 09:23:56.136  INFO 8100 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@37d3f0d6: startup date [Fri Feb 09 09:23:50 CST 2018]; root of context hierarchy
+2018-02-09 09:23:56.296  INFO 8100 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/demo/test],methods=[GET]}" onto public java.lang.Object com.spatome.boot.controller.DemoController.test(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-09 09:23:56.300  INFO 8100 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/login],methods=[POST]}" onto public java.lang.Object com.spatome.boot.controller.UserController.login(com.spatome.boot.vo.LoginRVO)
+2018-02-09 09:23:56.307  INFO 8100 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-09 09:23:56.308  INFO 8100 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-09 09:23:56.381  INFO 8100 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-09 09:23:56.382  INFO 8100 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-09 09:23:56.415  INFO 8100 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in baseController
+2018-02-09 09:23:56.416  INFO 8100 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in demoController
+2018-02-09 09:23:56.417  INFO 8100 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in userController
+2018-02-09 09:23:56.475  INFO 8100 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-09 09:23:56.556  WARN 8100 --- [restartedMain] .t.AbstractTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2018-02-09 09:23:57.418  INFO 8100 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-02-09 09:23:57.804  INFO 8100 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-02-09 09:23:57.965  INFO 8100 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8060 (http)
+2018-02-09 09:23:57.992  INFO 8100 --- [restartedMain] com.spatome.boot.BootApplication         : Started BootApplication in 8.834 seconds (JVM running for 10.012)
+2018-02-09 09:24:27.500  INFO 8100 --- [http-nio-127.0.0.1-8060-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-02-09 09:24:27.501  INFO 8100 --- [http-nio-127.0.0.1-8060-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-02-09 09:24:27.551  INFO 8100 --- [http-nio-127.0.0.1-8060-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 49 ms
+2018-02-09 09:24:27.618  INFO 8100 --- [http-nio-127.0.0.1-8060-exec-2] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 09:24:34.200  INFO 8100 --- [http-nio-127.0.0.1-8060-exec-6] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 09:24:35.682  INFO 8100 --- [http-nio-127.0.0.1-8060-exec-10] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 09:24:36.500  INFO 8100 --- [http-nio-127.0.0.1-8060-exec-3] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 09:24:47.240  INFO 8100 --- [http-nio-127.0.0.1-8060-exec-7] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 10:14:00.560  INFO 1368 --- [restartedMain] com.spatome.boot.BootApplication         : Starting BootApplication on zhangwei-PC with PID 1368 (F:\workspace\boot1\target\classes started by zhangwei in F:\workspace\boot1)
+2018-02-09 10:14:00.562  INFO 1368 --- [restartedMain] com.spatome.boot.BootApplication         : No active profile set, falling back to default profiles: default
+2018-02-09 10:14:02.873  INFO 1368 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@663b19b0: startup date [Fri Feb 09 10:14:02 CST 2018]; root of context hierarchy
+2018-02-09 10:14:07.519  INFO 1368 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8061 (http)
+2018-02-09 10:14:07.593  INFO 1368 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-02-09 10:14:07.596  INFO 1368 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2018-02-09 10:14:08.186  INFO 1368 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-02-09 10:14:08.187  INFO 1368 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5330 ms
+2018-02-09 10:14:08.671  INFO 1368 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-09 10:14:08.680  INFO 1368 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-09 10:14:08.687  INFO 1368 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-09 10:14:08.688  INFO 1368 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-09 10:14:08.688  INFO 1368 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-09 10:14:10.390  INFO 1368 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@663b19b0: startup date [Fri Feb 09 10:14:02 CST 2018]; root of context hierarchy
+2018-02-09 10:14:10.582  INFO 1368 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/demo/test],methods=[GET]}" onto public java.lang.Object com.spatome.boot.controller.DemoController.test(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-09 10:14:10.586  INFO 1368 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/login],methods=[POST]}" onto public java.lang.Object com.spatome.boot.controller.UserController.login(com.spatome.boot.vo.LoginRVO)
+2018-02-09 10:14:10.593  INFO 1368 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-09 10:14:10.594  INFO 1368 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-09 10:14:10.716  INFO 1368 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-09 10:14:10.717  INFO 1368 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-09 10:14:10.756  INFO 1368 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in baseController
+2018-02-09 10:14:10.757  INFO 1368 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in demoController
+2018-02-09 10:14:10.758  INFO 1368 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in userController
+2018-02-09 10:14:10.823  INFO 1368 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-09 10:14:10.907  WARN 1368 --- [restartedMain] .t.AbstractTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2018-02-09 10:14:12.585  INFO 1368 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-02-09 10:14:12.953  INFO 1368 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-02-09 10:14:13.539  INFO 1368 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8061 (http)
+2018-02-09 10:14:13.549  INFO 1368 --- [restartedMain] com.spatome.boot.BootApplication         : Started BootApplication in 14.107 seconds (JVM running for 17.468)
+2018-02-09 10:14:57.800  INFO 1368 --- [Thread-6] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@663b19b0: startup date [Fri Feb 09 10:14:02 CST 2018]; root of context hierarchy
+2018-02-09 10:14:57.841  INFO 1368 --- [Thread-6] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-02-09 10:14:58.567  INFO 1368 --- [restartedMain] com.spatome.boot.BootApplication         : Starting BootApplication on zhangwei-PC with PID 1368 (F:\workspace\boot1\target\classes started by zhangwei in F:\workspace\boot1)
+2018-02-09 10:14:58.568  INFO 1368 --- [restartedMain] com.spatome.boot.BootApplication         : No active profile set, falling back to default profiles: default
+2018-02-09 10:14:58.575  INFO 1368 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@10f0851a: startup date [Fri Feb 09 10:14:58 CST 2018]; root of context hierarchy
+2018-02-09 10:15:00.196  INFO 1368 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8061 (http)
+2018-02-09 10:15:00.197  INFO 1368 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-02-09 10:15:00.198  INFO 1368 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2018-02-09 10:15:00.262  INFO 1368 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-02-09 10:15:00.264  INFO 1368 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1689 ms
+2018-02-09 10:15:00.318  INFO 1368 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-09 10:15:00.320  INFO 1368 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-09 10:15:00.320  INFO 1368 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-09 10:15:00.320  INFO 1368 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-09 10:15:00.320  INFO 1368 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-09 10:15:00.547  INFO 1368 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@10f0851a: startup date [Fri Feb 09 10:14:58 CST 2018]; root of context hierarchy
+2018-02-09 10:15:00.571  INFO 1368 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/demo/test],methods=[GET]}" onto public java.lang.Object com.spatome.boot.controller.DemoController.test(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-09 10:15:00.574  INFO 1368 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/login],methods=[POST]}" onto public java.lang.Object com.spatome.boot.controller.UserController.login(com.spatome.boot.vo.LoginRVO)
+2018-02-09 10:15:00.581  INFO 1368 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-09 10:15:00.583  INFO 1368 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-09 10:15:00.613  INFO 1368 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-09 10:15:00.615  INFO 1368 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-09 10:15:00.641  INFO 1368 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in baseController
+2018-02-09 10:15:00.642  INFO 1368 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in demoController
+2018-02-09 10:15:00.643  INFO 1368 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in userController
+2018-02-09 10:15:00.657  INFO 1368 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-09 10:15:00.685  WARN 1368 --- [restartedMain] .t.AbstractTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2018-02-09 10:15:00.807  INFO 1368 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-02-09 10:15:01.114  INFO 1368 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-02-09 10:15:01.137  INFO 1368 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8061 (http)
+2018-02-09 10:15:01.140  INFO 1368 --- [restartedMain] com.spatome.boot.BootApplication         : Started BootApplication in 2.763 seconds (JVM running for 65.058)
+2018-02-09 10:15:42.764  INFO 1368 --- [http-nio-127.0.0.1-8061-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-02-09 10:15:42.765  INFO 1368 --- [http-nio-127.0.0.1-8061-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-02-09 10:15:42.831  INFO 1368 --- [http-nio-127.0.0.1-8061-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 66 ms
+2018-02-09 10:15:42.905  INFO 1368 --- [http-nio-127.0.0.1-8061-exec-1] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 10:16:16.953  INFO 1368 --- [RMI TCP Connection(2)-192.168.56.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2018-02-09 10:16:16.954  INFO 1368 --- [RMI TCP Connection(2)-192.168.56.1] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@10f0851a: startup date [Fri Feb 09 10:14:58 CST 2018]; root of context hierarchy
+2018-02-09 10:16:16.957  INFO 1368 --- [RMI TCP Connection(2)-192.168.56.1] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-02-09 10:25:02.671  INFO 8480 --- [restartedMain] com.spatome.boot.BootApplication         : Starting BootApplication on zhangwei-PC with PID 8480 (F:\workspace\boot1\target\classes started by zhangwei in F:\workspace\boot1)
+2018-02-09 10:25:02.673  INFO 8480 --- [restartedMain] com.spatome.boot.BootApplication         : No active profile set, falling back to default profiles: default
+2018-02-09 10:25:03.494  INFO 8480 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@50803c53: startup date [Fri Feb 09 10:25:03 CST 2018]; root of context hierarchy
+2018-02-09 10:25:06.645  INFO 8480 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8061 (http)
+2018-02-09 10:25:06.664  INFO 8480 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-02-09 10:25:06.666  INFO 8480 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2018-02-09 10:25:06.858  INFO 8480 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-02-09 10:25:06.859  INFO 8480 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3371 ms
+2018-02-09 10:25:07.441  INFO 8480 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-09 10:25:07.450  INFO 8480 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-09 10:25:07.452  INFO 8480 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-09 10:25:07.452  INFO 8480 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-09 10:25:07.453  INFO 8480 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-09 10:25:08.856  INFO 8480 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@50803c53: startup date [Fri Feb 09 10:25:03 CST 2018]; root of context hierarchy
+2018-02-09 10:25:09.072  INFO 8480 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/demo/test],methods=[GET]}" onto public java.lang.Object com.spatome.boot.controller.DemoController.test(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-09 10:25:09.075  INFO 8480 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/login],methods=[POST]}" onto public java.lang.Object com.spatome.boot.controller.UserController.login(com.spatome.boot.vo.LoginRVO)
+2018-02-09 10:25:09.081  INFO 8480 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-09 10:25:09.082  INFO 8480 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-09 10:25:09.179  INFO 8480 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-09 10:25:09.180  INFO 8480 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-09 10:25:09.218  INFO 8480 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in baseController
+2018-02-09 10:25:09.219  INFO 8480 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in demoController
+2018-02-09 10:25:09.219  INFO 8480 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in userController
+2018-02-09 10:25:09.284  INFO 8480 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-09 10:25:09.373  WARN 8480 --- [restartedMain] .t.AbstractTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2018-02-09 10:25:10.324  INFO 8480 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-02-09 10:25:10.702  INFO 8480 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-02-09 10:25:11.167  INFO 8480 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8061 (http)
+2018-02-09 10:25:11.193  INFO 8480 --- [restartedMain] com.spatome.boot.BootApplication         : Started BootApplication in 9.564 seconds (JVM running for 12.104)
+2018-02-09 10:37:04.649  INFO 8480 --- [RMI TCP Connection(2)-192.168.56.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2018-02-09 10:37:04.651  INFO 8480 --- [RMI TCP Connection(2)-192.168.56.1] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@50803c53: startup date [Fri Feb 09 10:25:03 CST 2018]; root of context hierarchy
+2018-02-09 10:37:04.662  INFO 8480 --- [RMI TCP Connection(2)-192.168.56.1] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-02-09 10:49:25.726  INFO 9124 --- [restartedMain] com.spatome.boot.BootApplication         : Starting BootApplication on zhangwei-PC with PID 9124 (F:\workspace\boot\target\classes started by zhangwei in F:\workspace\boot)
+2018-02-09 10:49:25.728  INFO 9124 --- [restartedMain] com.spatome.boot.BootApplication         : No active profile set, falling back to default profiles: default
+2018-02-09 10:49:26.413  INFO 9124 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@3314d926: startup date [Fri Feb 09 10:49:26 CST 2018]; root of context hierarchy
+2018-02-09 10:49:29.369  INFO 9124 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8060 (http)
+2018-02-09 10:49:29.394  INFO 9124 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-02-09 10:49:29.397  INFO 9124 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2018-02-09 10:49:29.585  INFO 9124 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-02-09 10:49:29.586  INFO 9124 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3178 ms
+2018-02-09 10:49:29.883  INFO 9124 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-09 10:49:29.890  INFO 9124 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-09 10:49:29.892  INFO 9124 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-09 10:49:29.892  INFO 9124 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-09 10:49:29.892  INFO 9124 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-09 10:49:30.756  INFO 9124 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@3314d926: startup date [Fri Feb 09 10:49:26 CST 2018]; root of context hierarchy
+2018-02-09 10:49:30.898  INFO 9124 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/demo/test],methods=[GET]}" onto public java.lang.Object com.spatome.boot.controller.DemoController.test(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-09 10:49:30.901  INFO 9124 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/login],methods=[POST]}" onto public java.lang.Object com.spatome.boot.controller.UserController.login(com.spatome.boot.vo.LoginRVO)
+2018-02-09 10:49:30.905  INFO 9124 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-09 10:49:30.906  INFO 9124 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-09 10:49:31.033  INFO 9124 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-09 10:49:31.033  INFO 9124 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-09 10:49:31.068  INFO 9124 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in baseController
+2018-02-09 10:49:31.068  INFO 9124 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in demoController
+2018-02-09 10:49:31.069  INFO 9124 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in userController
+2018-02-09 10:49:31.120  INFO 9124 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-09 10:49:31.190  WARN 9124 --- [restartedMain] .t.AbstractTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2018-02-09 10:49:32.247  INFO 9124 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-02-09 10:49:32.706  INFO 9124 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-02-09 10:49:33.254  INFO 9124 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8060 (http)
+2018-02-09 10:49:33.265  INFO 9124 --- [restartedMain] com.spatome.boot.BootApplication         : Started BootApplication in 8.162 seconds (JVM running for 10.828)
+2018-02-09 10:49:49.948  INFO 9124 --- [Thread-6] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@3314d926: startup date [Fri Feb 09 10:49:26 CST 2018]; root of context hierarchy
+2018-02-09 10:49:49.968  INFO 9124 --- [Thread-6] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-02-09 10:49:50.732  INFO 9124 --- [restartedMain] com.spatome.boot.BootApplication         : Starting BootApplication on zhangwei-PC with PID 9124 (F:\workspace\boot\target\classes started by zhangwei in F:\workspace\boot)
+2018-02-09 10:49:50.732  INFO 9124 --- [restartedMain] com.spatome.boot.BootApplication         : No active profile set, falling back to default profiles: default
+2018-02-09 10:49:50.738  INFO 9124 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@30a014fa: startup date [Fri Feb 09 10:49:50 CST 2018]; root of context hierarchy
+2018-02-09 10:49:51.647  INFO 9124 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8060 (http)
+2018-02-09 10:49:51.649  INFO 9124 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-02-09 10:49:51.649  INFO 9124 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2018-02-09 10:49:51.675  INFO 9124 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-02-09 10:49:51.677  INFO 9124 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 939 ms
+2018-02-09 10:49:51.745  INFO 9124 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-09 10:49:51.746  INFO 9124 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-09 10:49:51.747  INFO 9124 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-09 10:49:51.747  INFO 9124 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-09 10:49:51.747  INFO 9124 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-09 10:49:51.945  INFO 9124 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@30a014fa: startup date [Fri Feb 09 10:49:50 CST 2018]; root of context hierarchy
+2018-02-09 10:49:51.966  INFO 9124 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/demo/test],methods=[GET]}" onto public java.lang.Object com.spatome.boot.controller.DemoController.test(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-09 10:49:51.968  INFO 9124 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/login],methods=[POST]}" onto public java.lang.Object com.spatome.boot.controller.UserController.login(com.spatome.boot.vo.LoginRVO)
+2018-02-09 10:49:51.977  INFO 9124 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-09 10:49:51.978  INFO 9124 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-09 10:49:52.010  INFO 9124 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-09 10:49:52.011  INFO 9124 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-09 10:49:52.027  INFO 9124 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in baseController
+2018-02-09 10:49:52.028  INFO 9124 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in demoController
+2018-02-09 10:49:52.028  INFO 9124 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in userController
+2018-02-09 10:49:52.038  INFO 9124 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-09 10:49:52.058  WARN 9124 --- [restartedMain] .t.AbstractTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2018-02-09 10:49:52.112  INFO 9124 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-02-09 10:49:52.364  INFO 9124 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-02-09 10:49:52.429  INFO 9124 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8060 (http)
+2018-02-09 10:49:52.474  INFO 9124 --- [restartedMain] com.spatome.boot.BootApplication         : Started BootApplication in 1.876 seconds (JVM running for 30.037)
+2018-02-09 10:53:20.042  INFO 9124 --- [http-nio-127.0.0.1-8060-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-02-09 10:53:20.043  INFO 9124 --- [http-nio-127.0.0.1-8060-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-02-09 10:53:20.084  INFO 9124 --- [http-nio-127.0.0.1-8060-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 41 ms
+2018-02-09 10:53:20.148  INFO 9124 --- [http-nio-127.0.0.1-8060-exec-1] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:00:50.916  INFO 9124 --- [http-nio-127.0.0.1-8060-exec-3] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:01:14.996  INFO 9124 --- [http-nio-127.0.0.1-8060-exec-7] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:10:16.263  INFO 9124 --- [http-nio-127.0.0.1-8060-exec-9] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:10:18.470  INFO 9124 --- [http-nio-127.0.0.1-8060-exec-5] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:10:19.883  INFO 9124 --- [http-nio-127.0.0.1-8060-exec-2] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:10:21.208  INFO 9124 --- [http-nio-127.0.0.1-8060-exec-4] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:10:23.334  INFO 9124 --- [http-nio-127.0.0.1-8060-exec-8] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:10:25.373  INFO 9124 --- [http-nio-127.0.0.1-8060-exec-1] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:10:26.465  INFO 9124 --- [http-nio-127.0.0.1-8060-exec-3] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:10:26.995  INFO 9124 --- [http-nio-127.0.0.1-8060-exec-7] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:10:27.437  INFO 9124 --- [http-nio-127.0.0.1-8060-exec-10] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:10:28.656  INFO 9124 --- [http-nio-127.0.0.1-8060-exec-6] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:10:29.805  INFO 9124 --- [http-nio-127.0.0.1-8060-exec-9] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:10:31.376  INFO 9124 --- [http-nio-127.0.0.1-8060-exec-5] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:11:05.012  INFO 9124 --- [RMI TCP Connection(2)-192.168.56.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2018-02-09 11:11:05.014  INFO 9124 --- [RMI TCP Connection(2)-192.168.56.1] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@30a014fa: startup date [Fri Feb 09 10:49:50 CST 2018]; root of context hierarchy
+2018-02-09 11:11:05.020  INFO 9124 --- [RMI TCP Connection(2)-192.168.56.1] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-02-09 11:16:53.573  INFO 5952 --- [restartedMain] com.spatome.boot.BootApplication         : Starting BootApplication on zhangwei-PC with PID 5952 (F:\workspace\boot\target\classes started by zhangwei in F:\workspace\boot)
+2018-02-09 11:16:53.575  INFO 5952 --- [restartedMain] com.spatome.boot.BootApplication         : No active profile set, falling back to default profiles: default
+2018-02-09 11:16:54.329  INFO 5952 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@32f8796c: startup date [Fri Feb 09 11:16:54 CST 2018]; root of context hierarchy
+2018-02-09 11:16:58.184  INFO 5952 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8060 (http)
+2018-02-09 11:16:58.205  INFO 5952 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-02-09 11:16:58.208  INFO 5952 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2018-02-09 11:16:58.422  INFO 5952 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-02-09 11:16:58.423  INFO 5952 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4104 ms
+2018-02-09 11:16:58.810  INFO 5952 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-09 11:16:58.819  INFO 5952 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-09 11:16:58.820  INFO 5952 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-09 11:16:58.820  INFO 5952 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-09 11:16:58.820  INFO 5952 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-09 11:16:59.837  INFO 5952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@32f8796c: startup date [Fri Feb 09 11:16:54 CST 2018]; root of context hierarchy
+2018-02-09 11:17:00.002  INFO 5952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/demo/test],methods=[GET]}" onto public java.lang.Object com.spatome.boot.controller.DemoController.test(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-09 11:17:00.006  INFO 5952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/login],methods=[POST]}" onto public java.lang.Object com.spatome.boot.controller.UserController.login(com.spatome.boot.vo.LoginRVO)
+2018-02-09 11:17:00.014  INFO 5952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-09 11:17:00.015  INFO 5952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-09 11:17:00.092  INFO 5952 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-09 11:17:00.093  INFO 5952 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-09 11:17:00.133  INFO 5952 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in baseController
+2018-02-09 11:17:00.133  INFO 5952 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in demoController
+2018-02-09 11:17:00.134  INFO 5952 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in userController
+2018-02-09 11:17:00.191  INFO 5952 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-09 11:17:00.265  WARN 5952 --- [restartedMain] .t.AbstractTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2018-02-09 11:17:01.305  INFO 5952 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-02-09 11:17:01.609  INFO 5952 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-02-09 11:17:01.939  INFO 5952 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8060 (http)
+2018-02-09 11:17:01.951  INFO 5952 --- [restartedMain] com.spatome.boot.BootApplication         : Started BootApplication in 9.171 seconds (JVM running for 11.423)
+2018-02-09 11:17:24.489  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-02-09 11:17:24.490  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-02-09 11:17:24.609  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 118 ms
+2018-02-09 11:17:24.706  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-2] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:17:26.633  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-6] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:17:31.031  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-10] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:17:32.998  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-4] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:17:35.329  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-8] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:19:25.919  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-3] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:19:27.116  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-7] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:19:27.809  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-1] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:19:28.624  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-5] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:19:28.908  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-9] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:19:29.164  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-2] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:19:29.367  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-6] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:19:29.692  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-10] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:19:29.968  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-4] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:19:30.215  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-8] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:19:32.401  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-3] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:19:32.658  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-7] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:19:32.882  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-1] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:19:33.081  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-5] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:19:33.741  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-9] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:19:34.337  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-2] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:19:35.151  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-6] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:19:35.661  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-10] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:19:35.890  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-4] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:19:36.118  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-8] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:19:36.328  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-3] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:19:36.932  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-7] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:19:38.163  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-1] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:20:12.607  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-5] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:20:14.259  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-9] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:37:23.778  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-2] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:37:25.430  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-6] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:37:26.788  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-10] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:37:49.788  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-4] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:38:01.090  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-8] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:38:03.200  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-3] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:38:04.538  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-7] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:38:06.169  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-1] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:38:07.062  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-5] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:38:08.054  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-9] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:38:08.877  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-2] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:38:09.706  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-6] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:38:10.481  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-10] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:38:12.114  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-4] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:38:13.842  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-8] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:38:25.985  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-3] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:38:27.526  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-7] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:38:28.342  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-1] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:38:28.919  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-5] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:38:29.555  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-9] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:38:30.186  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-2] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:38:30.770  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-6] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:38:31.473  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-10] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:38:31.995  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-4] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:38:32.595  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-8] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:38:33.154  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-3] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:38:33.707  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-7] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:38:34.306  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-1] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 11:38:34.885  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-5] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 13:34:23.831  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-9] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 13:34:30.044  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-2] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:17:14.886  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-6] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:17:16.580  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-10] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:17:18.002  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-4] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:17:19.563  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-8] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:17:35.056  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-3] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:18:10.264  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-7] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:18:17.296  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-1] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:18:19.871  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-5] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:18:35.103  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-9] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:18:41.280  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-2] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:18:43.677  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-6] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:18:44.450  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-10] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:18:45.149  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-4] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:18:45.887  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-8] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:18:46.973  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-3] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:18:48.135  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-7] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:18:50.883  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-1] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:19:17.868  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-5] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:19:18.900  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-9] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:19:20.309  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-2] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:19:21.429  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-6] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:19:27.504  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-10] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:19:56.985  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-4] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:19:58.070  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-8] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:19:58.949  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-3] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:19:59.743  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-7] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:20:00.597  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-1] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:20:02.383  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-5] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:20:03.865  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-9] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:20:04.546  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-2] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:20:05.899  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-6] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:20:07.328  INFO 5952 --- [http-nio-127.0.0.1-8060-exec-10] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:20:11.951  INFO 5952 --- [RMI TCP Connection(2)-192.168.56.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2018-02-09 14:20:11.951  INFO 5952 --- [RMI TCP Connection(2)-192.168.56.1] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@32f8796c: startup date [Fri Feb 09 11:16:54 CST 2018]; root of context hierarchy
+2018-02-09 14:20:12.025  INFO 5952 --- [RMI TCP Connection(2)-192.168.56.1] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-02-09 14:32:30.227  INFO 7888 --- [restartedMain] com.spatome.boot.BootApplication         : Starting BootApplication on zhangwei-PC with PID 7888 (F:\workspace\boot\target\classes started by zhangwei in F:\workspace\boot)
+2018-02-09 14:32:30.229  INFO 7888 --- [restartedMain] com.spatome.boot.BootApplication         : No active profile set, falling back to default profiles: default
+2018-02-09 14:32:30.912  INFO 7888 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@50803c53: startup date [Fri Feb 09 14:32:30 CST 2018]; root of context hierarchy
+2018-02-09 14:32:34.138  INFO 7888 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8060 (http)
+2018-02-09 14:32:34.158  INFO 7888 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-02-09 14:32:34.160  INFO 7888 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2018-02-09 14:32:34.411  INFO 7888 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-02-09 14:32:34.412  INFO 7888 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3504 ms
+2018-02-09 14:32:34.726  INFO 7888 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-09 14:32:34.735  INFO 7888 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-09 14:32:34.736  INFO 7888 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-09 14:32:34.736  INFO 7888 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-09 14:32:34.737  INFO 7888 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-09 14:32:35.659  INFO 7888 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@50803c53: startup date [Fri Feb 09 14:32:30 CST 2018]; root of context hierarchy
+2018-02-09 14:32:35.799  INFO 7888 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/demo/test],methods=[GET]}" onto public java.lang.Object com.spatome.boot.controller.DemoController.test(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-09 14:32:35.802  INFO 7888 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/login],methods=[POST]}" onto public java.lang.Object com.spatome.boot.controller.UserController.login(com.spatome.boot.vo.LoginRVO)
+2018-02-09 14:32:35.807  INFO 7888 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-09 14:32:35.808  INFO 7888 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-09 14:32:35.880  INFO 7888 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-09 14:32:35.881  INFO 7888 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-09 14:32:35.916  INFO 7888 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in baseController
+2018-02-09 14:32:35.917  INFO 7888 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in demoController
+2018-02-09 14:32:35.917  INFO 7888 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in userController
+2018-02-09 14:32:35.980  INFO 7888 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-09 14:32:36.065  WARN 7888 --- [restartedMain] .t.AbstractTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2018-02-09 14:32:36.917  INFO 7888 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-02-09 14:32:37.285  INFO 7888 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-02-09 14:32:37.711  INFO 7888 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8060 (http)
+2018-02-09 14:32:37.720  INFO 7888 --- [restartedMain] com.spatome.boot.BootApplication         : Started BootApplication in 8.336 seconds (JVM running for 10.661)
+2018-02-09 14:32:58.085  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-02-09 14:32:58.086  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-4] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-02-09 14:32:58.145  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-4] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 59 ms
+2018-02-09 14:32:58.208  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-4] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:32:59.650  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-2] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:00.590  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-8] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:01.654  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-6] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:02.570  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-3] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:03.063  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-7] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:03.630  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-10] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:04.063  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-1] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:04.499  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-5] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:05.417  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-9] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:06.485  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-4] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:07.680  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-2] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:08.824  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-8] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:09.755  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-6] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:10.147  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-3] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:10.610  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-7] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:11.305  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-10] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:11.842  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-1] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:12.261  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-5] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:12.845  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-9] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:13.811  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-4] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:35.765  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-2] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:36.534  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-8] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:37.254  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-6] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:37.977  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-3] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:38.607  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-7] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:39.279  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-10] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:39.806  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-1] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:40.419  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-5] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:40.955  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-9] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:41.308  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-4] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:41.571  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-2] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:42.063  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-8] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:42.322  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-6] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:42.561  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-3] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:42.758  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-7] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:42.990  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-10] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:57.145  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-1] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:57.411  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-5] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:57.615  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-9] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:57.825  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-4] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:58.064  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-2] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:58.288  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-8] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:58.916  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-6] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:33:59.492  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-3] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:34:00.068  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-7] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:34:00.655  INFO 7888 --- [http-nio-127.0.0.1-8060-exec-10] c.s.boot.controller.BaseController       : this is demo/test
+2018-02-09 14:34:05.790  INFO 7888 --- [RMI TCP Connection(2)-192.168.56.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2018-02-09 14:34:05.790  INFO 7888 --- [RMI TCP Connection(2)-192.168.56.1] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@50803c53: startup date [Fri Feb 09 14:32:30 CST 2018]; root of context hierarchy
+2018-02-09 14:34:05.797  INFO 7888 --- [RMI TCP Connection(2)-192.168.56.1] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown

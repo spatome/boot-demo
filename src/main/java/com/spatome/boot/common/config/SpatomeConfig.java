@@ -2,12 +2,10 @@ package com.spatome.boot.common.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 
-@ConfigurationProperties(prefix="com.spatome.boot")
-@PropertySource("classpath:conf.properties")
+@ConfigurationProperties(prefix="spatome")
 @Configuration
-public class ConfProperties {
+public class SpatomeConfig {
 
 	private String userName;
 	private String zwCount;
