@@ -35,7 +35,9 @@ public class Tran99999ServiceImpl extends BaseService implements TranService {
 		log.debug("===========================业务处理=========================");
 		result.setMessage(SpatomeConfig.getPassword());
 		result.setBody(SpatomeConfig.getUserName());
-		
+
+		String ret = request.getHeader("token");
+		result.setMessage(ret);
 
 		return result;
 	}
