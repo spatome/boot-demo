@@ -21,6 +21,10 @@ import com.alibaba.druid.pool.xa.DruidXADataSource;
 import com.atomikos.icatch.jta.UserTransactionImp;
 import com.atomikos.icatch.jta.UserTransactionManager;
 
+/**
+ * 两个数据库的事务
+ * 由atomikos同一事务管理
+ */
 @Configuration
 @MapperScan(basePackages = "com.spatome.boot.dao.basic", sqlSessionFactoryRef = "masterSqlSessionFactory")
 public class DataSourceMasterConfig {
