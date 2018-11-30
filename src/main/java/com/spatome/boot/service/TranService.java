@@ -7,6 +7,6 @@ import javax.servlet.http.HttpServletResponse;
 
 public interface TranService {
 
-	public Object execute(Map<String, String> dataMap, HttpServletRequest request, HttpServletResponse response);
+	public Object execute(Map<String, String> inMap, HttpServletRequest request, HttpServletResponse response);
 
 }

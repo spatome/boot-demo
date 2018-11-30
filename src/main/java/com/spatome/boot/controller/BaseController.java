@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.spatome.boot.common.config.ConfProperties;
 import com.spatome.boot.common.exception.SException;
+import com.spatome.boot.factory.DaoFactory;
 import com.spatome.boot.factory.ServiceFactory;
 import com.spatome.boot.vo.BaseVO;
 
@@ -17,16 +17,15 @@ public class BaseController {
 	protected final static Logger LOGGER = LoggerFactory.getLogger(BaseController.class);
 
 	@Autowired
-	protected ConfProperties confProperties;
-	
+	protected DaoFactory daoFactory;
 	@Autowired
 	protected ServiceFactory serviceFactory;
-
+	
 	@ExceptionHandler(Exception.class)
 	@ResponseBody
 	public BaseVO<Object> handlerException(Exception ex){
 		LOGGER.error("service未知异常:", ex);
-		return new BaseVO<Object>("9999", ex.getMessage());
+		return new BaseVO<Object>("9999", "内部异常，清稍后重试");
 	}
 
 	@ExceptionHandler(SException.class)

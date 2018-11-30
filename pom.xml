@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.spatome</groupId>
-	<artifactId>boot</artifactId>
+	<artifactId>boot-demo-db</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>boot</name>
-	<description>spring boot 基础</description>
+	<name>boot-demo-db</name>
+	<description>spring boot db 基础</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -25,27 +25,23 @@
 	</properties>
 
 	<dependencies>
-		<!-- 配置文件 -->
+		<!-- spring boot -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
 		</dependency>
-		<!-- thymeleaf包含WEB, WEB包含starter -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<!-- <artifactId>spring-boot-starter-thymeleaf</artifactId> -->
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+			<artifactId>spring-boot-starter-jta-atomikos</artifactId>
 		</dependency>
 
 		<!-- 依赖的公共类库 -->
@@ -117,6 +113,27 @@
 		    <version>0.9.1</version>
 		</dependency>
 
+		<!-- 注解（日志 get set）相关 -->
+		<dependency>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+		</dependency>
+	    <dependency>
+	      <groupId>org.slf4j</groupId>
+	      <artifactId>slf4j-api</artifactId>
+	    </dependency>
+
+		<!-- redis -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.redisson</groupId>
+			<artifactId>redisson</artifactId>
+			<version>3.7.5</version>
+		</dependency>
+
 		<!-- 数据库 -->
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
@@ -139,14 +156,21 @@
 		    <version>5.0.4</version>
 		</dependency>
 
-		<!-- 注解（日志 get set）相关 -->
+		<!-- 热部署 -->
 		<dependency>
-		   <groupId>org.projectlombok</groupId>
-		   <artifactId>lombok</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-devtools</artifactId>
+		    <optional>true</optional> <!-- 这个需要为 true 热部署才有效 -->
 		</dependency>
 	</dependencies>
 
 	<build>
+		<finalName>boot-demo-db</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

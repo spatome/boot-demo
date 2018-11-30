@@ -5,12 +5,15 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.spatome.boot.common.exception.SException;
+import com.spatome.boot.factory.DaoFactory;
 import com.spatome.boot.factory.ServiceFactory;
 
 public abstract class BaseService {
 
 	@Autowired
-	protected ServiceFactory serviceFactoryImpl;
+	protected DaoFactory daoFactory;
+	@Autowired
+	protected ServiceFactory serviceFactory;
 
 	/**
 	 * @Description: 不空检查

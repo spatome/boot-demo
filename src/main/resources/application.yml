@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: boot-demo-db
+  jta:
+    atomikos:
+      properties:
+        service: com.atomikos.icatch.jta.UserTransactionFactory
+        max-actives: 50
+        max-timeout: 300000
+        default-jta-timeout: 10000
+        enable-logging: true
+  datasource: #basic(master)
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.0.132:3306/lianhua?useUnicode=true&amp;characterEncoding=UTF-8&allowMultiQueries=true&useAffectedRows=true
+    username: root
+    password: kxyx92108
+  datasource-1: #zjd(slave)
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.0.132:3306/lianwa?useUnicode=true&amp;characterEncoding=UTF-8&allowMultiQueries=true&useAffectedRows=true
+    username: root
+    password: kxyx92108
+
+#redisson:
+#  address: redis://192.168.0.132:6379
+#  password: kxyx92108
+#  database: 3
