@@ -4,7 +4,7 @@
 <configuration debug="false">
 
 	<!-- 日志路径 -->
-	<property name="LOG_HOME" value="/home/boot/logs/" />
+	<property name="LOG_HOME" value="/home/cloud/logs/" />
 	<!-- 项目名 -->
 	<property name="APP_NAME" value="boot-demo-db" />
 
