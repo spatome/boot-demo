@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.spatome.boot.dao.ActivityMapper" >
+  <resultMap id="BaseResultMap" type="com.spatome.boot.entity.Activity" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="enterprise_no" property="enterpriseNo" jdbcType="VARCHAR" />
+    <result column="activity_name" property="activityName" jdbcType="VARCHAR" />
+    <result column="allow_day_count" property="allowDayCount" jdbcType="INTEGER" />
+    <result column="begin_time" property="beginTime" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="activity_descs" property="activityDescs" jdbcType="VARCHAR" />
+    <result column="play_descs" property="playDescs" jdbcType="VARCHAR" />
+    <result column="game_type_id" property="gameTypeId" jdbcType="BIGINT" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="descs" property="descs" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, enterprise_no, activity_name, allow_day_count, begin_time, end_time, activity_descs, 
+    play_descs, game_type_id, status, create_time, update_time, descs
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from activity
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from activity
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.spatome.boot.entity.Activity" >
+    insert into activity (id, enterprise_no, activity_name, 
+      allow_day_count, begin_time, end_time, 
+      activity_descs, play_descs, game_type_id, 
+      status, create_time, update_time, 
+      descs)
+    values (#{id,jdbcType=BIGINT}, #{enterpriseNo,jdbcType=VARCHAR}, #{activityName,jdbcType=VARCHAR}, 
+      #{allowDayCount,jdbcType=INTEGER}, #{beginTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
+      #{activityDescs,jdbcType=VARCHAR}, #{playDescs,jdbcType=VARCHAR}, #{gameTypeId,jdbcType=BIGINT}, 
+      #{status,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{descs,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.spatome.boot.entity.Activity" >
+    insert into activity
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="enterpriseNo != null" >
+        enterprise_no,
+      </if>
+      <if test="activityName != null" >
+        activity_name,
+      </if>
+      <if test="allowDayCount != null" >
+        allow_day_count,
+      </if>
+      <if test="beginTime != null" >
+        begin_time,
+      </if>
+      <if test="endTime != null" >
+        end_time,
+      </if>
+      <if test="activityDescs != null" >
+        activity_descs,
+      </if>
+      <if test="playDescs != null" >
+        play_descs,
+      </if>
+      <if test="gameTypeId != null" >
+        game_type_id,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="descs != null" >
+        descs,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="enterpriseNo != null" >
+        #{enterpriseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="activityName != null" >
+        #{activityName,jdbcType=VARCHAR},
+      </if>
+      <if test="allowDayCount != null" >
+        #{allowDayCount,jdbcType=INTEGER},
+      </if>
+      <if test="beginTime != null" >
+        #{beginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="activityDescs != null" >
+        #{activityDescs,jdbcType=VARCHAR},
+      </if>
+      <if test="playDescs != null" >
+        #{playDescs,jdbcType=VARCHAR},
+      </if>
+      <if test="gameTypeId != null" >
+        #{gameTypeId,jdbcType=BIGINT},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="descs != null" >
+        #{descs,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.spatome.boot.entity.Activity" >
+    update activity
+    <set >
+      <if test="enterpriseNo != null" >
+        enterprise_no = #{enterpriseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="activityName != null" >
+        activity_name = #{activityName,jdbcType=VARCHAR},
+      </if>
+      <if test="allowDayCount != null" >
+        allow_day_count = #{allowDayCount,jdbcType=INTEGER},
+      </if>
+      <if test="beginTime != null" >
+        begin_time = #{beginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="activityDescs != null" >
+        activity_descs = #{activityDescs,jdbcType=VARCHAR},
+      </if>
+      <if test="playDescs != null" >
+        play_descs = #{playDescs,jdbcType=VARCHAR},
+      </if>
+      <if test="gameTypeId != null" >
+        game_type_id = #{gameTypeId,jdbcType=BIGINT},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="descs != null" >
+        descs = #{descs,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.spatome.boot.entity.Activity" >
+    update activity
+    set enterprise_no = #{enterpriseNo,jdbcType=VARCHAR},
+      activity_name = #{activityName,jdbcType=VARCHAR},
+      allow_day_count = #{allowDayCount,jdbcType=INTEGER},
+      begin_time = #{beginTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      activity_descs = #{activityDescs,jdbcType=VARCHAR},
+      play_descs = #{playDescs,jdbcType=VARCHAR},
+      game_type_id = #{gameTypeId,jdbcType=BIGINT},
+      status = #{status,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      descs = #{descs,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

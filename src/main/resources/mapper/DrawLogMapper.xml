@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.spatome.boot.dao.DrawLogMapper" >
+  <resultMap id="BaseResultMap" type="com.spatome.boot.entity.DrawLog" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="one_key" property="oneKey" jdbcType="VARCHAR" />
+    <result column="activity_id" property="activityId" jdbcType="BIGINT" />
+    <result column="prize_id" property="prizeId" jdbcType="BIGINT" />
+    <result column="activity_enterprise_no" property="activityEnterpriseNo" jdbcType="VARCHAR" />
+    <result column="prize_enterprise_no" property="prizeEnterpriseNo" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="DATE" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, one_key, activity_id, prize_id, activity_enterprise_no, prize_enterprise_no, 
+    create_date, create_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from draw_log
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from draw_log
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.spatome.boot.entity.DrawLog" >
+    insert into draw_log (id, one_key, activity_id, 
+      prize_id, activity_enterprise_no, prize_enterprise_no, 
+      create_date, create_time)
+    values (#{id,jdbcType=BIGINT}, #{oneKey,jdbcType=VARCHAR}, #{activityId,jdbcType=BIGINT}, 
+      #{prizeId,jdbcType=BIGINT}, #{activityEnterpriseNo,jdbcType=VARCHAR}, #{prizeEnterpriseNo,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=DATE}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.spatome.boot.entity.DrawLog" >
+    insert into draw_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="oneKey != null" >
+        one_key,
+      </if>
+      <if test="activityId != null" >
+        activity_id,
+      </if>
+      <if test="prizeId != null" >
+        prize_id,
+      </if>
+      <if test="activityEnterpriseNo != null" >
+        activity_enterprise_no,
+      </if>
+      <if test="prizeEnterpriseNo != null" >
+        prize_enterprise_no,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="oneKey != null" >
+        #{oneKey,jdbcType=VARCHAR},
+      </if>
+      <if test="activityId != null" >
+        #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="prizeId != null" >
+        #{prizeId,jdbcType=BIGINT},
+      </if>
+      <if test="activityEnterpriseNo != null" >
+        #{activityEnterpriseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeEnterpriseNo != null" >
+        #{prizeEnterpriseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.spatome.boot.entity.DrawLog" >
+    update draw_log
+    <set >
+      <if test="oneKey != null" >
+        one_key = #{oneKey,jdbcType=VARCHAR},
+      </if>
+      <if test="activityId != null" >
+        activity_id = #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="prizeId != null" >
+        prize_id = #{prizeId,jdbcType=BIGINT},
+      </if>
+      <if test="activityEnterpriseNo != null" >
+        activity_enterprise_no = #{activityEnterpriseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeEnterpriseNo != null" >
+        prize_enterprise_no = #{prizeEnterpriseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.spatome.boot.entity.DrawLog" >
+    update draw_log
+    set one_key = #{oneKey,jdbcType=VARCHAR},
+      activity_id = #{activityId,jdbcType=BIGINT},
+      prize_id = #{prizeId,jdbcType=BIGINT},
+      activity_enterprise_no = #{activityEnterpriseNo,jdbcType=VARCHAR},
+      prize_enterprise_no = #{prizeEnterpriseNo,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.spatome.boot.entity.basic.SysUser;
-import com.spatome.boot.entity.zjd.Enterprise;
 import com.spatome.boot.service.TranService;
 import com.spatome.boot.vo.BaseVO;
 
@@ -39,15 +37,6 @@ public class Tran99999ServiceImpl extends BaseService implements TranService {
 		super.checkNotEmpty(paramMap);
 
 		log.debug("===========================业务处理=========================");
-		Enterprise updateEnterprise = new Enterprise();
-		updateEnterprise.setId(1L);
-		updateEnterprise.setEnterpriseName(enterpriseName);
-		daoFactory.getEnterpriseMapper().updateByPrimaryKeySelective(updateEnterprise);
-
-		SysUser updateSysUser = new SysUser();
-		updateSysUser.setId(1L);
-		updateSysUser.setUserName(enterpriseName);
-		daoFactory.getSysUserMapper().updateByPrimaryKeySelective(updateSysUser);
 
 		return result;
 	}

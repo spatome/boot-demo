@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.spatome</groupId>
-	<artifactId>boot-demo-db</artifactId>
+	<artifactId>tidb-test</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>boot-demo-db</name>
-	<description>spring boot db 基础</description>
+	<name>tidb-test</name>
+	<description>tidb-test</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -170,7 +170,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>boot-demo-db</finalName>
+		<finalName>tidb-test</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

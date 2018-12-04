@@ -1,8 +1,6 @@
-package com.spatome.boot.dao.basic;
+package com.spatome.boot.dao;
 
-import java.util.List;
-
-import com.spatome.boot.entity.basic.SysUser;
+import com.spatome.boot.entity.SysUser;
 
 public interface SysUserMapper {
     int deleteByPrimaryKey(Long id);
@@ -16,7 +14,4 @@ public interface SysUserMapper {
     int updateByPrimaryKeySelective(SysUser record);
 
     int updateByPrimaryKey(SysUser record);
-
-
-    List<SysUser> selectByBean(SysUser sysUserQ);
 }

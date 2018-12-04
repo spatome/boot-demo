@@ -1,8 +1,6 @@
-package com.spatome.boot.dao.zjd;
+package com.spatome.boot.dao;
 
-import java.util.List;
-
-import com.spatome.boot.entity.zjd.Enterprise;
+import com.spatome.boot.entity.Enterprise;
 
 public interface EnterpriseMapper {
     int deleteByPrimaryKey(Long id);
@@ -16,7 +14,4 @@ public interface EnterpriseMapper {
     int updateByPrimaryKeySelective(Enterprise record);
 
     int updateByPrimaryKey(Enterprise record);
-
-
-    List<Enterprise> selectByBean(Enterprise enterpriseQ);
 }

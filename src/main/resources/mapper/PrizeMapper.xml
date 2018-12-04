@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.spatome.boot.dao.PrizeMapper" >
+  <resultMap id="BaseResultMap" type="com.spatome.boot.entity.Prize" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="enterprise_no" property="enterpriseNo" jdbcType="VARCHAR" />
+    <result column="share_level" property="shareLevel" jdbcType="VARCHAR" />
+    <result column="prize_name" property="prizeName" jdbcType="VARCHAR" />
+    <result column="prize_icon_name" property="prizeIconName" jdbcType="VARCHAR" />
+    <result column="prize_image_name" property="prizeImageName" jdbcType="VARCHAR" />
+    <result column="prize_count" property="prizeCount" jdbcType="INTEGER" />
+    <result column="prize_count_balance" property="prizeCountBalance" jdbcType="INTEGER" />
+    <result column="prize_day_count" property="prizeDayCount" jdbcType="INTEGER" />
+    <result column="prize_pr" property="prizePr" jdbcType="DECIMAL" />
+    <result column="prize_type" property="prizeType" jdbcType="VARCHAR" />
+    <result column="link" property="link" jdbcType="VARCHAR" />
+    <result column="link_descs" property="linkDescs" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="begin_date" property="beginDate" jdbcType="DATE" />
+    <result column="end_date" property="endDate" jdbcType="DATE" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="descs" property="descs" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, enterprise_no, share_level, prize_name, prize_icon_name, prize_image_name, prize_count, 
+    prize_count_balance, prize_day_count, prize_pr, prize_type, link, link_descs, status, 
+    begin_date, end_date, create_time, update_time, descs
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from prize
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from prize
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.spatome.boot.entity.Prize" >
+    insert into prize (id, enterprise_no, share_level, 
+      prize_name, prize_icon_name, prize_image_name, 
+      prize_count, prize_count_balance, prize_day_count, 
+      prize_pr, prize_type, link, 
+      link_descs, status, begin_date, 
+      end_date, create_time, update_time, 
+      descs)
+    values (#{id,jdbcType=BIGINT}, #{enterpriseNo,jdbcType=VARCHAR}, #{shareLevel,jdbcType=VARCHAR}, 
+      #{prizeName,jdbcType=VARCHAR}, #{prizeIconName,jdbcType=VARCHAR}, #{prizeImageName,jdbcType=VARCHAR}, 
+      #{prizeCount,jdbcType=INTEGER}, #{prizeCountBalance,jdbcType=INTEGER}, #{prizeDayCount,jdbcType=INTEGER}, 
+      #{prizePr,jdbcType=DECIMAL}, #{prizeType,jdbcType=VARCHAR}, #{link,jdbcType=VARCHAR}, 
+      #{linkDescs,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{beginDate,jdbcType=DATE}, 
+      #{endDate,jdbcType=DATE}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{descs,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.spatome.boot.entity.Prize" >
+    insert into prize
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="enterpriseNo != null" >
+        enterprise_no,
+      </if>
+      <if test="shareLevel != null" >
+        share_level,
+      </if>
+      <if test="prizeName != null" >
+        prize_name,
+      </if>
+      <if test="prizeIconName != null" >
+        prize_icon_name,
+      </if>
+      <if test="prizeImageName != null" >
+        prize_image_name,
+      </if>
+      <if test="prizeCount != null" >
+        prize_count,
+      </if>
+      <if test="prizeCountBalance != null" >
+        prize_count_balance,
+      </if>
+      <if test="prizeDayCount != null" >
+        prize_day_count,
+      </if>
+      <if test="prizePr != null" >
+        prize_pr,
+      </if>
+      <if test="prizeType != null" >
+        prize_type,
+      </if>
+      <if test="link != null" >
+        link,
+      </if>
+      <if test="linkDescs != null" >
+        link_descs,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="beginDate != null" >
+        begin_date,
+      </if>
+      <if test="endDate != null" >
+        end_date,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="descs != null" >
+        descs,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="enterpriseNo != null" >
+        #{enterpriseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="shareLevel != null" >
+        #{shareLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeName != null" >
+        #{prizeName,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeIconName != null" >
+        #{prizeIconName,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeImageName != null" >
+        #{prizeImageName,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeCount != null" >
+        #{prizeCount,jdbcType=INTEGER},
+      </if>
+      <if test="prizeCountBalance != null" >
+        #{prizeCountBalance,jdbcType=INTEGER},
+      </if>
+      <if test="prizeDayCount != null" >
+        #{prizeDayCount,jdbcType=INTEGER},
+      </if>
+      <if test="prizePr != null" >
+        #{prizePr,jdbcType=DECIMAL},
+      </if>
+      <if test="prizeType != null" >
+        #{prizeType,jdbcType=VARCHAR},
+      </if>
+      <if test="link != null" >
+        #{link,jdbcType=VARCHAR},
+      </if>
+      <if test="linkDescs != null" >
+        #{linkDescs,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="beginDate != null" >
+        #{beginDate,jdbcType=DATE},
+      </if>
+      <if test="endDate != null" >
+        #{endDate,jdbcType=DATE},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="descs != null" >
+        #{descs,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.spatome.boot.entity.Prize" >
+    update prize
+    <set >
+      <if test="enterpriseNo != null" >
+        enterprise_no = #{enterpriseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="shareLevel != null" >
+        share_level = #{shareLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeName != null" >
+        prize_name = #{prizeName,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeIconName != null" >
+        prize_icon_name = #{prizeIconName,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeImageName != null" >
+        prize_image_name = #{prizeImageName,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeCount != null" >
+        prize_count = #{prizeCount,jdbcType=INTEGER},
+      </if>
+      <if test="prizeCountBalance != null" >
+        prize_count_balance = #{prizeCountBalance,jdbcType=INTEGER},
+      </if>
+      <if test="prizeDayCount != null" >
+        prize_day_count = #{prizeDayCount,jdbcType=INTEGER},
+      </if>
+      <if test="prizePr != null" >
+        prize_pr = #{prizePr,jdbcType=DECIMAL},
+      </if>
+      <if test="prizeType != null" >
+        prize_type = #{prizeType,jdbcType=VARCHAR},
+      </if>
+      <if test="link != null" >
+        link = #{link,jdbcType=VARCHAR},
+      </if>
+      <if test="linkDescs != null" >
+        link_descs = #{linkDescs,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="beginDate != null" >
+        begin_date = #{beginDate,jdbcType=DATE},
+      </if>
+      <if test="endDate != null" >
+        end_date = #{endDate,jdbcType=DATE},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="descs != null" >
+        descs = #{descs,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.spatome.boot.entity.Prize" >
+    update prize
+    set enterprise_no = #{enterpriseNo,jdbcType=VARCHAR},
+      share_level = #{shareLevel,jdbcType=VARCHAR},
+      prize_name = #{prizeName,jdbcType=VARCHAR},
+      prize_icon_name = #{prizeIconName,jdbcType=VARCHAR},
+      prize_image_name = #{prizeImageName,jdbcType=VARCHAR},
+      prize_count = #{prizeCount,jdbcType=INTEGER},
+      prize_count_balance = #{prizeCountBalance,jdbcType=INTEGER},
+      prize_day_count = #{prizeDayCount,jdbcType=INTEGER},
+      prize_pr = #{prizePr,jdbcType=DECIMAL},
+      prize_type = #{prizeType,jdbcType=VARCHAR},
+      link = #{link,jdbcType=VARCHAR},
+      link_descs = #{linkDescs,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      begin_date = #{beginDate,jdbcType=DATE},
+      end_date = #{endDate,jdbcType=DATE},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      descs = #{descs,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
