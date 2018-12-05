@@ -10,12 +10,12 @@ spring:
     #url: jdbc:mysql://192.168.0.199:4000/activity?useSSL=false&characterEncoding=UTF-8&allowMultiQueries=true&useAffectedRows=true
     url: jdbc:mysql://192.168.0.185:3306/activity?useSSL=false&characterEncoding=UTF-8&allowMultiQueries=true&useAffectedRows=true
     username: root
-    password: 
+    password: root
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.spatome.boot.dao
 
-#redisson:
-#  address: redis://192.168.0.132:6379
-#  password: kxyx92108
-#  database: 3
+redisson:
+  address: redis://192.168.0.132:6379
+  password: kxyx92108
+  database: 3

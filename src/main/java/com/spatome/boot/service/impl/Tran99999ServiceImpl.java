@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.spatome.boot.entity.Activity;
 import com.spatome.boot.service.TranService;
 import com.spatome.boot.vo.BaseVO;
 
@@ -37,6 +38,9 @@ public class Tran99999ServiceImpl extends BaseService implements TranService {
 		super.checkNotEmpty(paramMap);
 
 		log.debug("===========================业务处理=========================");
+		Activity activity = daoFactory.getActivityMapper().selectByPrimaryKey(1L);
+
+		result.setBody(activity);
 
 		return result;
 	}
