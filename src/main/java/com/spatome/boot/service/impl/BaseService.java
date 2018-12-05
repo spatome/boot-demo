@@ -1,8 +1,11 @@
 package com.spatome.boot.service.impl;
 
+import java.io.Serializable;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 
 import com.spatome.boot.common.exception.SException;
 import com.spatome.boot.factory.DaoFactory;
@@ -14,6 +17,11 @@ public abstract class BaseService {
 	protected DaoFactory daoFactory;
 	@Autowired
 	protected ServiceFactory serviceFactory;
+
+	@Autowired
+	protected StringRedisTemplate stringRedisTemplate;
+	@Autowired
+	protected RedisTemplate<String, Serializable> redisTemplate;
 
 	/**
 	 * @Description: 不空检查

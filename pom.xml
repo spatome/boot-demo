@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.spatome</groupId>
-	<artifactId>demo-test-db</artifactId>
+	<artifactId>boot-demo-db-redis</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>demo-test-db</name>
-	<description>demo-test-db</description>
+	<name>boot-demo-db-redis</name>
+	<description>boot-demo-db-redis</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -166,7 +166,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>demo-test-db</finalName>
+		<finalName>boot-demo-db-redis</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
