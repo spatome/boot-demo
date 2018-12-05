@@ -1,5 +1,7 @@
 package com.spatome.boot.dao;
 
+import java.util.List;
+
 import com.spatome.boot.entity.DrawLog;
 
 public interface DrawLogMapper {
@@ -14,4 +16,8 @@ public interface DrawLogMapper {
     int updateByPrimaryKeySelective(DrawLog record);
 
     int updateByPrimaryKey(DrawLog record);
+
+
+    List<DrawLog> selectByBean(DrawLog record);
+
 }

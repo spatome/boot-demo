@@ -126,4 +126,31 @@
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+
+  <select id="selectByBean" resultMap="BaseResultMap" parameterType="com.spatome.boot.entity.DrawLog">
+	select <include refid="Base_Column_List" />
+	from draw_log T WHERE 1 = 1
+      <if test="oneKey != null" >
+        AND one_key = #{oneKey,jdbcType=VARCHAR}
+      </if>
+      <if test="activityId != null" >
+        AND activity_id = #{activityId,jdbcType=BIGINT}
+      </if>
+      <if test="prizeId != null" >
+        AND prize_id = #{prizeId,jdbcType=BIGINT}
+      </if>
+      <if test="activityEnterpriseNo != null" >
+        AND activity_enterprise_no = #{activityEnterpriseNo,jdbcType=VARCHAR}
+      </if>
+      <if test="prizeEnterpriseNo != null" >
+        AND prize_enterprise_no = #{prizeEnterpriseNo,jdbcType=VARCHAR}
+      </if>
+      <if test="createDate != null" >
+        AND create_date = #{createDate,jdbcType=DATE}
+      </if>
+      <if test="createTime != null" >
+        AND create_time = #{createTime,jdbcType=TIMESTAMP}
+      </if>
+  </select>
 </mapper>
