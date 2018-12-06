@@ -1,18 +1,17 @@
 package com.spatome.boot.service.impl;
 
-import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.spatome.boot.common.config.redis.RedissonLockUtil;
-import com.spatome.boot.entity.Account;
 import com.spatome.boot.service.TranService;
+import com.spatome.boot.util.convert.JUtil;
 import com.spatome.boot.vo.BaseVO;
 import com.spatome.boot.vo.TestVO;
 
@@ -36,66 +35,38 @@ public class Tran99999ServiceImpl extends BaseService implements TranService {
 		String enterpriseNo = dataMap.get("enterpriseNo");
 		String enterpriseName = dataMap.get("enterpriseName");
 
-		Long id = Long.valueOf(dataMap.get("id"));
-		String name = dataMap.get("name");
+		String isGet = dataMap.get("isGet");
 		log.debug("检查参数");
 		Map<String, String> paramMap = new HashMap<String, String>();
 		paramMap.put("enterpriseNo", enterpriseNo);
 		super.checkNotEmpty(paramMap);
 
 		log.debug("===========================业务处理=========================");
-		//this.test(id, name);
-		//this.test1(id, name);
-		//this.test2(id);
-		//String ret = super.stringRedisTemplate.opsForValue().get("zw:string:"+id);
-		//map.put("zw:string:"+id, ret);
+		long start = System.currentTimeMillis();
 
-/*		TestVO ret1 = (TestVO)super.redisTemplate.opsForValue().get("zw:bean:"+id);
-		map.put("zw:bean:"+id, ret1);*/
-
-/*		Object ret2 = super.redisTemplate.opsForValue().get("zw:bean:long:"+id);
-		if(ret2==null){
-			map.put("zw:bean:long:"+id, "isNull");
+		if(StringUtils.isNotBlank(isGet) && "TRUE".equals(isGet)){
+			String ret = (String)this.get(enterpriseNo);
+			//TestVO VO = JUtil.toBean(ret, TestVO.class);
+			Map<String, String> VO = JUtil.toMap(ret);
+			map.put("enterpriseName", VO);
 		}else{
-			map.put("zw:bean:long:"+id, ret2);
-		}*/
-
-		//==============================================================================
-		String key = "lock:activity:account:id:"+id;
-		if(RedissonLockUtil.tryLock(key, 3000L)){
-			try{
-				Account account = daoFactory.getAccountMapper().selectByPrimaryKey(id);
-				Account updateAccount = new Account();
-				updateAccount.setId(account.getId());
-				updateAccount.setDepositAmount(account.getDepositAmount().add(BigDecimal.ONE));
-				daoFactory.getAccountMapper().updateByPrimaryKeySelective(updateAccount);
-				System.out.println("99999修改");
-				try {
-					Thread.sleep(10 * 1000L);
-				} catch (InterruptedException e) {
-				}
-			}finally{
-				RedissonLockUtil.unlock(key);
-			}
-		}else{
-			System.err.println("99999锁获取失败");
+			TestVO VO = new TestVO();
+			VO.setName(enterpriseName);
+			VO.setPwd(enterpriseNo);
+			this.set(enterpriseNo, 0, JUtil.toJson(VO));
 		}
+
+		long start1 = System.currentTimeMillis();
+		System.out.println("==>"+(start1-start));
 
 		return result;
 	}
 
-	public void test(Long id, String name){
-		super.stringRedisTemplate.opsForValue().set("zw:string:"+id, name);
+	public Object get(String key){
+		return super.memcachedUtil.getMemcachedClient().get(key);
 	}
 
-	public void test1(Long id, String name){
-		TestVO VO = new TestVO();
-		VO.setId(id);
-		VO.setName(name);
-		super.redisTemplate.opsForValue().set("zw:bean:"+id, VO);
-	}
-
-	public void test2(Long id){
-		super.redisTemplate.opsForValue().set("zw:bean:long:"+id, id);
+	public void set(String key, int exp, Object value){
+		super.memcachedUtil.getMemcachedClient().set(key, exp, value);
 	}
 }

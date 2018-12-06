@@ -25,3 +25,6 @@ redisson:
   address: redis://192.168.0.132:6379
   password: kxyx92108
   database: 3
+memcached:
+  ip: 192.168.0.199
+  port: 11211

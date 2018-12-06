@@ -130,6 +130,13 @@
 			<version>3.7.5</version>
 		</dependency>
 
+		<!-- memcached -->
+		<dependency>
+		  <groupId>net.spy</groupId>
+		  <artifactId>spymemcached</artifactId>
+		  <version>2.12.2</version>
+		</dependency>
+
 		<!-- 数据库 -->
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
+import com.spatome.boot.common.config.memcached.MemcachedUtil;
 import com.spatome.boot.common.exception.SException;
 import com.spatome.boot.factory.DaoFactory;
 import com.spatome.boot.factory.ServiceFactory;
@@ -23,6 +24,9 @@ public abstract class BaseService {
 	@Autowired
 	protected RedisTemplate<String, Serializable> redisTemplate;
 
+	@Autowired
+	protected MemcachedUtil memcachedUtil;
+	
 	/**
 	 * @Description: 不空检查
 	 */
