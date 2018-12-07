@@ -1,21 +1,19 @@
 package com.spatome.boot.common.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
-@ConfigurationProperties(prefix="spatome")
+@ConfigurationProperties(prefix="my")
 @Configuration
-public class SpatomeConfig {
+public class MyConfig {
 
-	private String userName;
+	public static String userName;
 	private String zwCount;
 
-	public String getUserName() {
-		return userName;
-	}
-
+	@Value("${my.userName:z}")
 	public void setUserName(String userName) {
-		this.userName = userName;
+		MyConfig.userName = userName;
 	}
 
 	public String getZwCount() {
