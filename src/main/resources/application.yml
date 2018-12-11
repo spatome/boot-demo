@@ -1,6 +1,7 @@
 server:
-  port: 8060
+  port: 8080
 
-spatome:
-  user-name: zw
-  zw-count: 3
+my:
+  socketio:
+    host: 192.168.0.185
+    port: 9970

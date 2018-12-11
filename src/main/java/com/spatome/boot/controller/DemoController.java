@@ -26,4 +26,15 @@ public class DemoController extends BaseController {
 
         return result;
     }
+
+    @RequestMapping(value = "send", method = RequestMethod.GET)
+    public Object send(HttpServletRequest request, HttpServletResponse response) {
+    	BaseVO<Object> result = new BaseVO<Object>();
+
+    	String type = request.getParameter("type");
+    	String content = request.getParameter("content");
+
+
+        return result;
+    }
 }

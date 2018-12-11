@@ -1,0 +1,22 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>消息推送</title>
+</head>
+<body>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdn.bootcss.com/socket.io/2.0.4/socket.io.js"></script>
+<script type="text/javascript">
+	var socket = io.connect('http://192.168.0.185:9970?userNo=zw');
+	// socket.on('connect', function () {});
+	// socket.on('disconnect', function () {});
+	socket.on('notification', function (data) {
+  		if (data.message) alert(data.message);
+  		if (data.count > 0) {
+    		$("#n_count").text(data.count);
+  		}
+	});
+</script>
+</html>
