@@ -9,14 +9,34 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdn.bootcss.com/socket.io/2.0.4/socket.io.js"></script>
 <script type="text/javascript">
-	var socket = io.connect('http://192.168.0.185:9970?userNo=zw');
-	// socket.on('connect', function () {});
-	// socket.on('disconnect', function () {});
-	socket.on('notification', function (data) {
-  		if (data.message) alert(data.message);
-  		if (data.count > 0) {
-    		$("#n_count").text(data.count);
-  		}
-	});
+	var userNo = 'zw001';
+	var socket = io.connect('http://192.168.0.185:9970?userNo='+userNo);
+
+    socket.on('connect', function () {
+        console.log('连接')
+    });
+
+    socket.on('notifyAll', function (data) {
+        console.log("收到全服数据")
+        console.log(data);
+    });
+
+
+    socket.on('notify', function (data) {
+        console.log("收到个人数据")
+        console.log(data);
+        
+    });
+
+    // 可以是任意类型的数据，这里用了一个json对象，后端有对应的实体类
+/*     var jsonObject = {
+        "username": "username1",
+        "to": 2
+    };
+    socket.emit('messageevent', jsonObject); */
+
+    socket.on('disconnect', function () {
+        console.log("断开")
+    });
 </script>
 </html>

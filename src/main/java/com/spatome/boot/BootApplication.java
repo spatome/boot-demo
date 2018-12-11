@@ -25,6 +25,7 @@ public class BootApplication {
 	@Bean
 	public SocketIOServer socketIOServer() {
 		Configuration conf = new Configuration();
+		conf.setOrigin(null);	// 注意如果开放跨域设置，需要设置为null而不是"*"
 		conf.setHostname(socketioConfig.getHost());
 		conf.setPort(socketioConfig.getPort());
 	    // 协议升级超时时间（毫秒），默认10000。HTTP握手升级为ws协议超时时间
