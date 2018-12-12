@@ -19,7 +19,7 @@ public class NettyServer {
 		this.port = port;
 	}
 
-	public void start(){
+	public void start() throws Exception{
 		EventLoopGroup bossGroup = new NioEventLoopGroup();		//用来接收进来的连接
 		EventLoopGroup workerGroup = new NioEventLoopGroup();	//用来处理已经被接收的连接
 		try {
@@ -36,8 +36,6 @@ public class NettyServer {
 			log.info("==>netty服务启动: [port:" + port + "]");
 			// 等待服务器socket关闭
 			channelFuture.channel().closeFuture().sync();
-		}catch (Exception e) {
-			log.error("==>netty服务启动异常" + e.getMessage());
 		}finally {
 			workerGroup.shutdownGracefully();
 			bossGroup.shutdownGracefully();
