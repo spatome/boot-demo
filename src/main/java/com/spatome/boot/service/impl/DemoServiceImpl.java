@@ -12,4 +12,5 @@ public class DemoServiceImpl extends BaseService implements DemoService {
 	public String test(String userName) {
 		return userName;
 	}
+
 }

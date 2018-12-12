@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Service;
 
 import com.spatome.boot.controller.BaseController.BaseVO;
+import com.spatome.boot.netty.NettyClient;
 import com.spatome.boot.service.BaseService;
 import com.spatome.boot.service.TranService;
 
@@ -33,7 +34,7 @@ public class Tran99999ServiceImpl extends BaseService implements TranService {
 		super.checkNotEmpty(paramMap);
 
 		log.debug("===========================业务处理=========================");
-		result.setBody(":"+userName);
+		NettyClient.getInstance().send(userName);
 
 		return result;
 	}
