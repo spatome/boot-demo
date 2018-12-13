@@ -10,11 +10,13 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class NettyServerHandler extends SimpleChannelInboundHandler<String> {
 
+	private int count;
+
 	@Override
 	protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
 		try {
 			//String clientId = ctx.channel().id().asLongText();
-			log.info("==>收到消息:{}", msg);
+			log.info("==>服务端收到消息{}:{}", ++count, msg);
 
 			//测试原值返回
 			ctx.channel().writeAndFlush(msg);
