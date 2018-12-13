@@ -20,8 +20,8 @@ public class NettyClientHandler extends SimpleChannelInboundHandler<String> {
 
 	@Override
 	public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-		System.out.println("==>连接关闭 ");
 		super.channelInactive(ctx);
+		log.info("==>连接关闭 ");
 	}
 
 }

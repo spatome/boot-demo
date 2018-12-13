@@ -34,7 +34,7 @@ public class Tran99999ServiceImpl extends BaseService implements TranService {
 		super.checkNotEmpty(paramMap);
 
 		log.debug("===========================业务处理=========================");
-		NettyClient.getInstance().send(userName);
+		NettyClient.getInstance().send(userName+"\n");
 
 		return result;
 	}

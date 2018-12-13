@@ -14,7 +14,9 @@ public class NettyClientInitalizer extends ChannelInitializer<SocketChannel> {
 	@Override
 	protected void initChannel(SocketChannel ch) throws Exception {
 		ChannelPipeline pipeline = ch.pipeline();
-		pipeline.addLast(new DelimiterBasedFrameDecoder(8192, Delimiters.lineDelimiter()));
+		//ByteBuf delimiter = Unpooled.copiedBuffer("$_".getBytes());	//自定义分隔符
+		//pipeline.addLast(new DelimiterBasedFrameDecoder(1024, delimiter));
+		pipeline.addLast(new DelimiterBasedFrameDecoder(1024, Delimiters.lineDelimiter()));
 		pipeline.addLast(new StringDecoder(CharsetUtil.UTF_8));
 		pipeline.addLast(new StringEncoder(CharsetUtil.UTF_8));
 		pipeline.addLast(new NettyClientHandler());

@@ -26,6 +26,7 @@ public class NettyClient {
 
 
     private ChannelFuture cf;
+
 	public void start(String host, int port) throws Exception{
 		EventLoopGroup group = new NioEventLoopGroup();
 		Bootstrap bootstrap = new Bootstrap();
@@ -44,9 +45,14 @@ public class NettyClient {
 	public void send(String message){
 		if(cf!=null && cf.channel().isActive()){
 			cf.channel().writeAndFlush(message);
-			System.out.println("==>nettyClient发送消息:"+message);
+			log.info("==>nettyClient发送消息:"+message);
 		}else{
-			System.out.println("==>cf不能用");
+			log.info("==>nettyClient无连接,重连...");
+			try {
+				this.start("192.168.0.185", 9970);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
