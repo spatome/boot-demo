@@ -13,8 +13,8 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<String> {
 	@Override
 	protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
 		try {
-			String clientId = ctx.channel().id().asLongText();
-			log.info("==>收到clientId:{},消息:{}", clientId, msg);
+			//String clientId = ctx.channel().id().asLongText();
+			log.info("==>收到消息:{}", msg);
 
 			//测试原值返回
 			ctx.channel().writeAndFlush(msg);
