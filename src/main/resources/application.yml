@@ -1,6 +1,6 @@
 server:
-  port: 8060
+  port: 8080
 
 my:
-  user-name: zw
-  zw-count: 3
+  wx-app-id: aaaaa
+  wx-app-secret: bbbbb

@@ -1,26 +1,18 @@
 package com.spatome.boot.common.config;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @ConfigurationProperties(prefix="my")
 @Configuration
+@Getter
+@Setter
 public class MyConfig {
 
-	public static String userName;
-	private String zwCount;
+	private String wxAppId;
+	private String wxAppSecret;
 
-	@Value("${my.userName:z}")
-	public void setUserName(String userName) {
-		MyConfig.userName = userName;
-	}
-
-	public String getZwCount() {
-		return zwCount;
-	}
-
-	public void setZwCount(String zwCount) {
-		this.zwCount = zwCount;
-	}
 }
