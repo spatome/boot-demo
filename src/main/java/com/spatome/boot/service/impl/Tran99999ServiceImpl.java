@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import com.spatome.boot.controller.BaseController.BaseVO;
@@ -28,13 +29,19 @@ public class Tran99999ServiceImpl extends BaseService implements TranService {
 
 		log.debug("获取参数");
 		String userName = dataMap.get("userName");
+		int count = StringUtils.isBlank(dataMap.get("count"))?1:Integer.valueOf(dataMap.get("count"));
 		log.debug("检查参数");
 		Map<String, String> paramMap = new HashMap<String, String>();
 		//paramMap.put("userName", userName);
 		super.checkNotEmpty(paramMap);
 
 		log.debug("===========================业务处理=========================");
-		NettyClient.getInstance().send(userName+"\n");
+		String message = "" ;
+		for (int i = 0; i < count; i++) {
+			message += userName;
+		}
+
+		NettyClient.getInstance().send(message);
 
 		return result;
 	}

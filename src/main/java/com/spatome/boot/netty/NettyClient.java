@@ -1,5 +1,7 @@
 package com.spatome.boot.netty;
 
+import com.spatome.boot.netty.bean.Message;
+
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelOption;
@@ -24,7 +26,6 @@ public class NettyClient {
         return instance;
     }
 
-
     private ChannelFuture cf;
 
 	public void start(String host, int port) throws Exception{
@@ -44,15 +45,16 @@ public class NettyClient {
 	
 	public void send(String message){
 		if(cf!=null && cf.channel().isActive()){
-			cf.channel().writeAndFlush(message);
+			cf.channel().writeAndFlush(new Message((byte)0xA, (byte)0xC, 1, message));
 			log.info("==>nettyClient发送消息:"+message);
 		}else{
-			log.info("==>nettyClient无连接,重连...");
+			log.info("==>nettyClient无连接");
+/*			log.info("==>nettyClient无连接,重连...");
 			try {
 				this.start("192.168.0.185", 9970);
 			} catch (Exception e) {
 				e.printStackTrace();
-			}
+			}*/
 		}
 	}
 
