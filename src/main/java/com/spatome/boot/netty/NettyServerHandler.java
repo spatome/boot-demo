@@ -10,15 +10,15 @@ import io.netty.util.ReferenceCountUtil;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class NettyServerHandler extends SimpleChannelInboundHandler<String> {
+public class NettyServerHandler extends SimpleChannelInboundHandler<Message> {
 
 	private int count;
 
 	@Override
-	protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
+	protected void channelRead0(ChannelHandlerContext ctx, Message msg) throws Exception {
 		try {
 			//String clientId = ctx.channel().id().asLongText();
-			log.info("==>服务端收到消息{}:{}", ++count, msg);
+			log.info("==>服务端收到消息{}:{}", ++count, msg.getBody());
 
 			//测试原值返回
 			ctx.channel().writeAndFlush(msg);
