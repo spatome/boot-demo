@@ -2,6 +2,8 @@ package com.spatome.boot.netty;
 
 import java.net.InetAddress;
 
+import com.spatome.boot.netty.bean.Message;
+
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.util.ReferenceCountUtil;
@@ -29,7 +31,8 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<String> {
 	@Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         log.info("==>RamoteAddress:{} active!", ctx.channel().remoteAddress());
-        ctx.channel().writeAndFlush( "Welcome to " + InetAddress.getLocalHost().getHostAddress() + " service!\n");
+        Message message = new Message((byte)0xA, (byte)0xC, 0, "Welcome to " + InetAddress.getLocalHost().getHostAddress());
+        ctx.channel().writeAndFlush(message);
 
         super.channelActive(ctx);
     }
