@@ -43,11 +43,11 @@ public class ProtostuffUtil {
     public static <T> byte[] serialize(T obj) {
 		// 获取泛型对象的类型
 		Class<T> clazz = (Class<T>) obj.getClass();
-		// 创建泛型对象的schema对象
-		RuntimeSchema<T> schema = RuntimeSchema.createFrom(clazz);
 		// 创建LinkedBuffer对象
 		LinkedBuffer buffer = LinkedBuffer.allocate(LinkedBuffer.DEFAULT_BUFFER_SIZE);
         try {
+    		// 创建泛型对象的schema对象
+    		RuntimeSchema<T> schema = RuntimeSchema.createFrom(clazz);
 			// 序列化
 			byte[] array = ProtostuffIOUtil.toByteArray(obj, schema, buffer);
 			// 返回序列化对象
