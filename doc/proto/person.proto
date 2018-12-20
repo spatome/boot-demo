@@ -1,8 +1,0 @@
-syntax = "proto3";
-
-option java_package="com.spatome.boot.netty.proto";
-option java_outer_classname = "PersonPro";
-
-message PersonRequest { 
-	int32 id=1;
-}

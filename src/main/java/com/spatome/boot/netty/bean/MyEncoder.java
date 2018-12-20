@@ -1,25 +1,23 @@
 package com.spatome.boot.netty.bean;
 
+import com.spatome.boot.netty.util.ProtostuffUtil;
+
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
 
 /**
- * 编码
+ * 继承MessageToByteEncoder
  */
-public class MyEncoder extends MessageToByteEncoder<Message> {
+public class MyEncoder extends MessageToByteEncoder<Object> {
 
 	@Override
-	protected void encode(ChannelHandlerContext ctx, Message message, ByteBuf out) throws Exception {
-		if(message==null){
-			throw new RuntimeException("message is null");
-		}
-
-		out.writeByte(message.getType());
-		out.writeByte(message.getFlag());
-		byte[] data = message.getBody().getBytes("UTF-8");
-		out.writeInt(data.length);
-		out.writeBytes(data);
+	protected void encode(ChannelHandlerContext ctx, Object msg, ByteBuf out) throws Exception {
+        // 直接生成序列化对象
+        // 需要注意的是，使用protostuff序列化时，不需要知道pojo对象的具体类型也可以进行序列化时
+        // 在反序列化时，只要提供序列化后的字节数组和原来pojo对象的类型即可完成反序列化
+        byte[] array = ProtostuffUtil.serialize(msg);
+        out.writeBytes(array);
 	}
 
 }

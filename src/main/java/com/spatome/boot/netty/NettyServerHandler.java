@@ -1,8 +1,10 @@
 package com.spatome.boot.netty;
 
 import java.net.InetAddress;
+import java.util.UUID;
 
-import com.spatome.boot.netty.bean.Message;
+import com.spatome.boot.netty.proto.ClientMessage;
+import com.spatome.boot.netty.proto.ServerMessage;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -10,18 +12,23 @@ import io.netty.util.ReferenceCountUtil;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class NettyServerHandler extends SimpleChannelInboundHandler<Message> {
+public class NettyServerHandler extends SimpleChannelInboundHandler<ClientMessage> {
 
 	private int count;
 
 	@Override
-	protected void channelRead0(ChannelHandlerContext ctx, Message msg) throws Exception {
+	protected void channelRead0(ChannelHandlerContext ctx, ClientMessage msg) throws Exception {
 		try {
 			//String clientId = ctx.channel().id().asLongText();
-			log.info("==>服务端收到消息{}:{}", ++count, msg.getBody());
+			log.info("==>服务端收到消息{}:{}", ++count, msg.getMessageObj());
 
-			//测试原值返回
-			ctx.channel().writeAndFlush(msg);
+			//返回
+	        ServerMessage resp = new ServerMessage(
+	        		msg.getMessageId(),
+	        		msg.getMessageObj()
+	        		);
+
+			ctx.channel().writeAndFlush(resp);
 		}finally {
 			//抛弃收到的数据
 			ReferenceCountUtil.release(msg);
@@ -31,8 +38,13 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<Message> {
 	@Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         log.info("==>RamoteAddress:{} active!", ctx.channel().remoteAddress());
-        Message message = new Message((byte)0xA, (byte)0xC, 0, "Welcome to " + InetAddress.getLocalHost().getHostAddress());
-        ctx.channel().writeAndFlush(message);
+
+        ServerMessage resp = new ServerMessage(
+        		UUID.randomUUID().toString(),
+        		"Welcome to " + InetAddress.getLocalHost().getHostAddress()
+        		);
+
+        ctx.channel().writeAndFlush(resp);
 
         super.channelActive(ctx);
     }
