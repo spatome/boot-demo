@@ -1,6 +1,8 @@
 package com.spatome.boot.netty;
 
-import com.spatome.boot.netty.bean.Message;
+import java.util.UUID;
+
+import com.spatome.boot.netty.proto.ClientMessage;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
@@ -45,7 +47,12 @@ public class NettyClient {
 	
 	public void send(String message){
 		if(cf!=null && cf.channel().isActive()){
-			cf.channel().writeAndFlush(new Message((byte)0xA, (byte)0xC, 1, message));
+			ClientMessage clientMessage = new ClientMessage(
+					UUID.randomUUID().toString(),
+					message
+					);
+
+			cf.channel().writeAndFlush(clientMessage);
 			log.info("==>nettyClient发送消息:"+message);
 		}else{
 			log.info("==>nettyClient无连接");

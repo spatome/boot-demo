@@ -1,62 +1,38 @@
 package com.spatome.boot.netty.bean;
 
-import java.nio.charset.Charset;
+import java.util.List;
+
+import com.spatome.boot.netty.util.ProtostuffUtil;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
-import lombok.extern.slf4j.Slf4j;
+import io.netty.handler.codec.MessageToMessageDecoder;
 
 /**
- * 解码
+ * 继承MessageToMessageDecoder
  */
-@Slf4j
-public class MyDecoder extends LengthFieldBasedFrameDecoder {
+public class MyDecoder extends MessageToMessageDecoder<ByteBuf> {
 
-	private int headSize;
+    // 需要反序列对象所属的类型
+    private Class<?> clazz;
 
-	/**
-	 * @param maxFrameLength	帧的最大长度
-	 * @param lengthFieldOffset	length字段偏移的地址
-	 * @param lengthFieldLength	length字段所占的字节长
-	 * @param lengthAdjustment	修改帧数据长度字段中定义的值，可以为负数 因为有时候我们习惯把头部记入长度,若为负数,则说明要推后多少个字段
-	 * @param initialBytesToStrip	解析时候跳过多少个长度
-	 * @param failFast	为true，当frame长度超过maxFrameLength时立即报TooLongFrameException异常，为false，读取完整个帧再报异
-	 */
-	public MyDecoder(
-			final int headSize,
-			int maxFrameLength,
-			int lengthFieldOffset,
-			int lengthFieldLength,
-			int lengthAdjustment,
-			int initialBytesToStrip,
-			boolean failFast) {
-		super(maxFrameLength, lengthFieldOffset, lengthFieldLength, lengthAdjustment, initialBytesToStrip, failFast);
-		this.headSize = headSize;
-	}
-
+    // 构造方法，传入需要反序列化对象的类型
+    public MyDecoder(Class<?> clazz) {
+        this.clazz = clazz;
+    }
+	
 	@Override
-	protected Object decode(ChannelHandlerContext ctx, ByteBuf in) throws Exception {
-		if(in==null){
-			return null;
-		}
-
-		if(in.readableBytes() < headSize){
-            throw new Exception("可读信息小于头部");
-		}
-
-		byte type = in.readByte();
-		byte flag = in.readByte();
-		int length = in.readInt();
-
-		if(in.readableBytes() < length){
-            throw new Exception("可读信息体小于length:"+length);
-		}
-
-        byte[] data = new byte[length];
-        in.readBytes(data);
-
-        return new Message(type, flag, length, new String(data, "UTF-8"));
+	protected void decode(ChannelHandlerContext ctx, ByteBuf msg, List<Object> out) throws Exception {
+        // ByteBuf的长度
+        int length = msg.readableBytes();
+        // 构建length长度的字节数组
+        byte[] array = new byte[length];
+        // 将ByteBuf数据复制到字节数组中
+        msg.readBytes(array);
+        // 反序列化对象
+        Object obj = ProtostuffUtil.deserialize(array, this.clazz);
+        // 添加到反序列化对象结果列表
+        out.add(obj);
 	}
 
 }

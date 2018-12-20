@@ -1,17 +1,23 @@
 package com.spatome.boot.netty;
 
-import com.spatome.boot.netty.bean.Message;
+import com.spatome.boot.netty.proto.ServerMessage;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
+import io.netty.util.ReferenceCountUtil;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class NettyClientHandler extends SimpleChannelInboundHandler<Message> {
+public class NettyClientHandler extends SimpleChannelInboundHandler<ServerMessage> {
 
 	@Override
-	protected void channelRead0(ChannelHandlerContext ctx, Message message) throws Exception {
-		log.info("==>收到服务端消息:{}", message.getBody());
+	protected void channelRead0(ChannelHandlerContext ctx, ServerMessage msg) throws Exception {
+		try {
+			log.info("==>收到服务端消息:{}", msg.getMessageObj());
+		} finally {
+			ReferenceCountUtil.release(msg);
+		}
+		
 	}
 
 	@Override
