@@ -5,7 +5,6 @@ import java.util.UUID;
 
 import com.spatome.boot.netty.proto.ClientMessage;
 import com.spatome.boot.netty.proto.ServerMessage;
-import com.spatome.boot.netty.proto.ActivePro;
 import com.spatome.boot.netty.proto.UserPro;
 
 import io.netty.channel.ChannelHandlerContext;
@@ -46,14 +45,12 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<ClientMessag
         log.info("==>RamoteAddress:{} active!", ctx.channel().remoteAddress());
 
         String message = "Welcome to " + InetAddress.getLocalHost().getHostAddress();
-        ActivePro activePro = new ActivePro();
-        activePro.setValue(message);
 
         ServerMessage resp = new ServerMessage(
         		UUID.randomUUID().toString(),
         		null,
-        		activePro,
-        		ActivePro.class
+        		message,
+        		String.class
         		);
 
         ctx.channel().writeAndFlush(resp);

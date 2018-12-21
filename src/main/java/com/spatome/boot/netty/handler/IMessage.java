@@ -1,4 +1,4 @@
-package com.spatome.boot.netty.proto;
+package com.spatome.boot.netty.handler;
 
 public interface IMessage<T> {
 
