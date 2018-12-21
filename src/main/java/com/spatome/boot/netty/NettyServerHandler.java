@@ -5,6 +5,8 @@ import java.util.UUID;
 
 import com.spatome.boot.netty.proto.ClientMessage;
 import com.spatome.boot.netty.proto.ServerMessage;
+import com.spatome.boot.netty.proto.ActivePro;
+import com.spatome.boot.netty.proto.UserPro;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -20,12 +22,16 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<ClientMessag
 	protected void channelRead0(ChannelHandlerContext ctx, ClientMessage msg) throws Exception {
 		try {
 			//String clientId = ctx.channel().id().asLongText();
-			log.info("==>服务端收到消息{}:{}", ++count, msg.getMessageObj());
+			log.info("==>服务端收到消息{}:{}", ++count, msg.toString());
 
 			//返回
+			UserPro userPro = new UserPro();
+			userPro.setUserName("zw"+count);
 	        ServerMessage resp = new ServerMessage(
-	        		msg.getMessageId(),
-	        		msg.getMessageObj()
+	        		UUID.randomUUID().toString(),
+	        		msg.getClientMessageId(),
+	        		userPro,
+	        		UserPro.class
 	        		);
 
 			ctx.channel().writeAndFlush(resp);
@@ -39,9 +45,15 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<ClientMessag
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         log.info("==>RamoteAddress:{} active!", ctx.channel().remoteAddress());
 
+        String message = "Welcome to " + InetAddress.getLocalHost().getHostAddress();
+        ActivePro activePro = new ActivePro();
+        activePro.setValue(message);
+
         ServerMessage resp = new ServerMessage(
         		UUID.randomUUID().toString(),
-        		"Welcome to " + InetAddress.getLocalHost().getHostAddress()
+        		null,
+        		activePro,
+        		ActivePro.class
         		);
 
         ctx.channel().writeAndFlush(resp);

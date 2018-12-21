@@ -1,5 +1,9 @@
 package test;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
+import com.spatome.boot.netty.proto.ClientMessage;
 import com.spatome.boot.netty.proto.UserPro;
 import com.spatome.boot.netty.util.ProtostuffUtil;
 
@@ -13,9 +17,47 @@ public class App {
 
 	public static void main(String[] args) {
 		App app = new App();
-		app.test();
+		app.test1();
 	}
 
+	public void test1(){
+		UserPro userPro = new UserPro();
+		userPro.setId(1L);
+		userPro.setUserName("zw001");
+		userPro.setAge(20);
+
+		ClientMessage clientMessage = new ClientMessage(
+				"1",
+				"1",
+				userPro,
+				UserPro.class
+				);
+
+		try {
+			Method method = clientMessage.getMessageObjClass().getMethod("messageHandler", String.class, String.class, clientMessage.getMessageObjClass());
+			method.invoke(clientMessage.getMessageObjClass().newInstance(), clientMessage.getServerMessageId(), clientMessage.getClientMessageId(), clientMessage.getMessageObj());
+			
+		} catch (NoSuchMethodException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	};
+	
 	public void test(){
 		UserPro userPro = new UserPro();
 		userPro.setId(1L);

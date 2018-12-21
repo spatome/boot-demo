@@ -74,4 +74,5 @@ public class ProtostuffUtil {
         // 返回反序列化对象
         return message;
     }
+
 }
