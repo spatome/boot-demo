@@ -3,6 +3,8 @@ package com.spatome.boot.netty;
 import java.util.UUID;
 
 import com.spatome.boot.netty.proto.ClientMessage;
+import com.spatome.boot.netty.proto.EnterprisePro;
+import com.spatome.boot.netty.proto.UserPro;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
@@ -46,10 +48,22 @@ public class NettyClient {
 	}
 	
 	public void send(String message){
+		this.test1(message);
+		this.test2(message);
+	}
+
+	public void test1(String message){
 		if(cf!=null && cf.channel().isActive()){
+			UserPro userPro = new UserPro();
+			userPro.setId(1L);
+			userPro.setUserName(message);
+			userPro.setAge(21);
+
 			ClientMessage clientMessage = new ClientMessage(
 					UUID.randomUUID().toString(),
-					message
+					null,
+					userPro,
+					UserPro.class
 					);
 
 			cf.channel().writeAndFlush(clientMessage);
@@ -65,4 +79,30 @@ public class NettyClient {
 		}
 	}
 
+	public void test2(String message){
+		if(cf!=null && cf.channel().isActive()){
+			EnterprisePro enterprisePro = new EnterprisePro();
+			enterprisePro.setId(1L);
+			enterprisePro.setEnterpriseNo("corp001");
+			enterprisePro.setEnterpriseName(message);
+
+			ClientMessage clientMessage = new ClientMessage(
+					UUID.randomUUID().toString(),
+					null,
+					enterprisePro,
+					EnterprisePro.class
+					);
+
+			cf.channel().writeAndFlush(clientMessage);
+			log.info("==>nettyClient发送消息:"+message);
+		}else{
+			log.info("==>nettyClient无连接");
+/*			log.info("==>nettyClient无连接,重连...");
+			try {
+				this.start("192.168.0.185", 9970);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}*/
+		}
+	}
 }
