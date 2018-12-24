@@ -3,9 +3,10 @@ package com.spatome.boot.netty;
 import java.net.InetAddress;
 import java.util.UUID;
 
+import com.spatome.boot.netty.handler.IMessage;
+import com.spatome.boot.netty.handler.ProFactory;
 import com.spatome.boot.netty.proto.ClientMessage;
 import com.spatome.boot.netty.proto.ServerMessage;
-import com.spatome.boot.netty.proto.UserPro;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -17,23 +18,27 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<ClientMessag
 
 	private int count;
 
+	@SuppressWarnings("unchecked")
 	@Override
 	protected void channelRead0(ChannelHandlerContext ctx, ClientMessage msg) throws Exception {
 		try {
 			//String clientId = ctx.channel().id().asLongText();
 			log.info("==>服务端收到消息{}:{}", ++count, msg.toString());
 
-			//返回
-			UserPro userPro = new UserPro();
-			userPro.setUserName("zw"+count);
-	        ServerMessage resp = new ServerMessage(
-	        		UUID.randomUUID().toString(),
-	        		msg.getClientMessageId(),
-	        		userPro,
-	        		UserPro.class
-	        		);
+			ServerMessage serverMessage = new ServerMessage(
+					UUID.randomUUID().toString(),
+					msg.getClientMessageId(),
+					"OK",
+					String.class
+					);
+			
+			@SuppressWarnings("rawtypes")
+			IMessage iMessage = ProFactory.getMessageObject(msg.getMessageObjClass());
+			iMessage.messageHandler(msg.getMessageObj(), serverMessage);
 
-			ctx.channel().writeAndFlush(resp);
+			if(serverMessage != null){
+				ctx.channel().writeAndFlush(serverMessage);	
+			}
 		}finally {
 			//抛弃收到的数据
 			ReferenceCountUtil.release(msg);
