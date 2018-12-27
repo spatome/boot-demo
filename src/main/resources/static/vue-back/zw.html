@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>hello world</title>
+<script src="/js/vue.min.js"></script>
+<script src="/js/axios.min.js"></script>
+</head>
+
+<body>
+	<div id="app">
+		<p>{{msg}}</p>
+		<p>
+			<button v-on:click="myClick1">get提交</button>
+		</p>
+		<p>
+			<button v-on:click="myClick2">post提交</button>
+		</p>
+	</div>
+</body>
+
+<script>
+import axios from 'axios';
+new Vue({
+	  el: "#app",
+	  data: {
+	    msg: ''
+	  },
+
+	  methods: {
+		  myClick1: function(){
+			  axios.interceptors.request.use(
+			  	config => {
+			    	// const token = getCookie('名称');注意使用的时候需要引入cookie方法，推荐js-cookie
+			    	config.data = JSON.stringify(config.data);
+			    	config.headers = {
+			      		'Content-Type':'application/x-www-form-urlencoded'
+			    	}
+			    	// if(token){
+			    	//   config.params = {'token':token}
+			    	// }
+			    	return config;
+			  	},
+			  	error => {
+			    	return Promise.reject(err);
+			  	}
+			  );
+
+			  axios.get('/demo/test').then(function (response) {
+				this.msg = response.data;
+ 			  }.bind(this)).catch(function (error) {
+			    console.log(error);
+			  });
+		  },
+
+		  myClick2: function(){
+			  axios.interceptors.request.use(
+					  	config => {
+					    	// const token = getCookie('名称');注意使用的时候需要引入cookie方法，推荐js-cookie
+					    	config.data = JSON.stringify(config.data);
+					    	config.headers = {
+					      		'Content-Type':'application/x-www-form-urlencoded'
+					    	}
+					    	// if(token){
+					    	//   config.params = {'token':token}
+					    	// }
+					    	return config;
+					  	},
+					  	error => {
+					    	return Promise.reject(err);
+					  	}
+					  );
+
+			  axios.post('/demo/test1', qs.stringify({
+				  a: 'aaaaaaaaaaaa'
+			  })).then(function (response) {
+				this.msg = response.data;
+			  }.bind(this)).catch(function (error) {
+			    console.log(error);
+			  });
+		  }
+	  }
+})
+</script>
+</html>

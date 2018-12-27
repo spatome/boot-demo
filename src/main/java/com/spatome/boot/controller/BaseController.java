@@ -2,6 +2,8 @@ package com.spatome.boot.controller;
 
 import java.io.Serializable;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -24,18 +26,18 @@ public class BaseController {
 
 	@ExceptionHandler(Exception.class)
 	@ResponseBody
-	public BaseVO<Object> handlerException(Exception ex){
+	public BaseVO<Object> handlerException(Exception ex) {
 		log.error("service未知异常:", ex);
 		return new BaseVO<Object>("9999", ex.getMessage());
 	}
 
 	@ExceptionHandler(SException.class)
 	@ResponseBody
-	public BaseVO<Object> sException(SException ex){
+	public BaseVO<Object> sException(SException ex) {
 		log.error("service自定义异常:", ex);
 		return new BaseVO<Object>(ex.getCode(), ex.getMessage());
 	}
-	
+
 	public static class BaseVO<T> implements Serializable {
 		private static final long serialVersionUID = 1L;
 
@@ -44,15 +46,15 @@ public class BaseController {
 		private T body;
 
 		public BaseVO() {
-			this.code="0000";
+			this.code = "0000";
 			this.message = "操作成功";
 		}
-		
+
 		public BaseVO(String code, String message) {
 			this.code = code;
 			this.message = message;
 		}
-		
+
 		public String getCode() {
 			return code;
 		}
@@ -76,5 +78,9 @@ public class BaseController {
 		public void setBody(T body) {
 			this.body = body;
 		}
+	}
+
+	public String getPath(HttpServletRequest request) {
+		return request.getRequestURL().toString().replace(request.getRequestURI(), "");
 	}
 }

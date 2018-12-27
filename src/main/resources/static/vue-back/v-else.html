@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>v-if</title>
+<script src="/js/vue.min.js"></script>
+</head>
+
+<body>
+	<div id="app">
+		<h1>Hello, Vue.js!</h1>
+		<h1 v-if="age >= 25">Age>=25: {{ age }}</h1>
+		<h1 v-else>Age<=25: {{ age }}</h1>
+	</div>
+</body>
+
+<script>
+	var data = {
+		yes:true,
+		no:false,
+		age:28,
+		name:'zw'
+	}
+
+	var vc = new Vue({
+	    el: '#app',
+	    data: data
+	})
+</script>
+</html>

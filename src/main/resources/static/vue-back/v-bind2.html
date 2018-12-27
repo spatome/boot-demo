@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>(绑定分类：class,style,src,title)v-bind2样式(绑定class)</title>
+	<link type="text/css" rel="styleSheet"  href="/css/zw.css" />
+	<script src="/js/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+		<span class="box" :class="myStyle">我是字</span>
+    </div>
+</body>
+
+<script>
+var myStyle = {
+	'textColor':true,
+	'textSize':true
+}
+
+new Vue({
+  　　el: "#app",
+	data:{
+		/* 将JS值赋给vue */
+		myStyle:myStyle
+	}
+})
+</script>
+</html>

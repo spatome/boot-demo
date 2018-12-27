@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>v-bind3(bind src)</title>
+<link type="text/css" rel="styleSheet"  href="/css/zw.css" />
+<script src="/js/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+		<img :src="url" />
+		<!-- <img :src={{url}} /> -->
+		{{demoData.url}}
+    </div>
+</body>
+
+<script>
+var data = {
+	url:"../img/test1.jpg"
+}
+
+new Vue({
+  　　el: "#app",
+	data:{
+		demoData:data,
+		url:"../img/test.jpg"
+	}
+})
+</script>
+</html>

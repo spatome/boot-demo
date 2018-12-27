@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>hello world</title>
+	<link type="text/css" rel="styleSheet"  href="/css/zw.css" />
+	<script src="/js/vue.min.js"></script>
+</head>
+
+<body>
+<div id="app">
+    <ul class="box">
+        <li v-for="n in pageCount">
+            <a href="javascripit:void(0)" v-bind:class="currentPage == n ? 'active' : ''">{{ n }}</a>
+        </li>
+    </ul>
+</div>
+</body>
+
+<script>
+new Vue({
+    el: '#app',
+    data: {
+        currentPage: 1,
+        pageCount: 10
+    }
+})
+</script>
+</html>

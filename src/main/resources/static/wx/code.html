@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>微信测试</title>
+<script src="/js/vue.min.js"></script>
+<script src="/js/index.js"></script>
+</head>
+
+<body>
+<div id="app">
+	<p>{{msg}}</p>
+	绑定msg<input v-model="msg">
+	<p><button v-on:click="getWxCode">获取微信code</button></p>
+</div>
+
+<script type="text/javascript">
+var vm = new Vue({
+	el: '#app',
+	data:{
+		msg: 'aaaaaaaaaa',
+		wx_code_url: 'https://open.weixin.qq.com/connect/oauth2/authorize',
+		wx_app_id: 'wx6e0110829ad0f4b4'
+	},
+
+  	methods: {
+	    getWxCode: function(){
+	    	window.location.href = this.wx_code_url
+					+ "?appid="+this.wx_app_id
+					+ "&redirect_uri="+encodeURIComponent(window.location.href)
+					+ "&response_type=code"
+					+ "&scope=snsapi_base"
+					+ "&state=zw001"
+					+ "#wechat_redirect";
+	    	var code = this.getQueryString("code");
+	    	this.msg = code;
+	    },
+
+ 	 	getQueryString: function(name){
+	        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
+	        var r = window.location.search.substr(1).match(reg);
+	        if (r != null) return unescape(r[2]); 
+	        return null;
+	    }  
+  	}
+})
+</script>
+</body>
+</html>

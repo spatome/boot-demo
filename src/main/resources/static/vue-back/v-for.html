@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>v-if</title>
+<script src="/js/vue.min.js"></script>
+</head>
+
+<body>
+	<div id="app">
+		<table>
+			<thead>
+				<tr>
+					<th>No</th>
+					<th>Name</th>
+					<th>Age</th>
+					<th>Sex</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="(person, index) in people">
+					<td>{{index}}</td>
+					<td>{{ person.name }}</td>
+					<td>{{ person.age }}</td>
+					<td>{{ person.sex }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+
+<script>
+	var data = {
+		people : [ {name : 'Jack', age : 30, sex : 'Male'}, 
+		           {name : 'Bill', age : 26, sex : 'Male'}, 
+		           {name : 'Tracy',age : 22, sex : 'Female'}, 
+		           {name : 'Chris',age : 36, sex : 'Male'}]
+	}
+
+	var vc = new Vue({
+		el : '#app',
+		data : data
+	})
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>微信测试</title>
+<script src="/js/vue.min.js"></script>
+<script src="/js/index.js"></script>
+</head>
+
+<body>
+<div id="app">
+	显示:<p>{{msg}}</p>
+	绑定msg<input v-model="msg">
+	<p><button v-on:click="getWxCode">获取微信code</button></p>
+</div>
+
+<script type="text/javascript">
+var vm = new Vue({
+	el: '#app',
+	data:{
+		msg: '',
+		wx_code_url: 'https://open.weixin.qq.com/connect/oauth2/authorize',
+		wx_app_id: 'wx6e0110829ad0f4b4',
+		wx_redirect_uri: "http://152778z87j.imwork.net/demo/test"
+	},
+
+  	methods: {
+	    getWxCode: function(){
+	    	this.$fetch('/demo/test')
+	      	.then((response) => {
+	        	this.msg = response.body;
+	      	})
+	    }
+  	}
+})
+</script>
+</body>
+</html>

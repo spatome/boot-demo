@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>hello world</title>
+<script src="/js/vue.min.js"></script>
+<script src="/js/jquery-2.1.4.min.js"></script>
+</head>
+
+<body>
+	<div class="cj_buzhou mt_30"
+		style="margin: 0 10px 15px 20px; font-size: 14px; color: #666; border-top: 1px solid #ccc; padding-top: 10px;">请选择计划类型:</div>
+	<ul class="jh_tl">
+		<a href="http://www.baidu.com">
+			<li class="dq_buzhou"><img src=""
+				alt="">
+				<h3 class="title_qt">普通计划</h3></li>
+		</a>
+		<a href="http://www.baidu.com">
+			<li class="dq_buzhou1"><img src=""
+				alt="">
+				<h3 class="title_qt">必中计划</h3></li>
+		</a>
+		<a href="http://www.baidu.com">
+			<li class="dq_buzhou2"><img src=""
+				alt="">
+				<h3 class="title_qt">兑换码</h3></li>
+		</a>
+		<a href="http://www.baidu.com">
+			<li class="dq_buzhou3"><img src=""
+				alt="">
+				<h3 class="title_qt">现金必中</h3></li>
+		</a>
+	</ul>
+	</div>
+</body>
+
+<script>
+	$(function() {
+		$("a").click(function() {
+			var startTime = new Date("2018-01-01 12:00:00");
+			var endTime = new Date("2018-01-02 12:00:00");
+			var curTime = new Date();
+			if(curTime>=startTime && curTime<=endTime){
+				alert("春节期间停止售票");
+				return false;				
+			}
+		});
+	});
+</script>
+</html>

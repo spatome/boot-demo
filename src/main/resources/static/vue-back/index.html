@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>微信测试</title>
+<script src="/js/vue.min.js"></script>
+<script src="/js/axios.min.js"></script>
+</head>
+
+<body>
+<div id="app">
+	<p>{{msg}}</p>
+	绑定msg<input v-model="msg">
+	<p><button v-on:click="get">get测试</button></p>
+	<p><button v-on:click="post">post测试</button></p>
+</div>
+
+<script type="text/javascript">
+
+var vm = new Vue({
+	el: '#app',
+	data:{
+		msg: ''
+	},
+
+	methods: {
+		get: function(){
+		  	axios.get('/demo/test').then(function (response) {
+				this.msg = response.data;
+ 			}.bind(this)).catch(function (error) {
+			    console.log(error);
+			});
+		},
+
+		post: function(){
+			//this.$fetch("/demo/test").then((response){
+				//alert(response.data)
+			//});
+			console.log('bvvv');
+		}
+	}
+})
+</script>
+</body>
+</html>

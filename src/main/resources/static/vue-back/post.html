@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>hello world</title>
+<script src="/js/vue.min.js"></script>
+<script src="/js/axios.min.js"></script>
+</head>
+
+<body>
+	<div id="app">
+		<p>参数1:<input type="text" v-model="param1" /></p>
+		<p>参数2:<input type="text" v-model="param2" /></p>
+		<p><button v-on:click="myClick">提交</button></p>
+	</div>
+</body>
+
+<script>
+new Vue({
+	  el: "#app",
+	  data: {
+	    param1: '',
+	    param2: ''
+	  },
+
+	  methods: {
+		  myClick: function(){
+			  axios.post('/process', {
+				  transType: '00000',
+				  param1: this.param1
+			  }).then(function (response) {
+				this.param2 = response.data.message;
+ 			  }.bind(this)).catch(function (error) {
+			    console.log(error);
+			  });
+		  }
+	  }
+})
+</script>
+</html>
