@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>微信测试</title>
+<script src="http://pv.sohu.com/cityjson"></script>
+<script type="text/javascript">
+var spatome_cityId = returnCitySN["cid"];
+
+function getWxCode(){
+	console.log(spatome_cityId);
+}
+</script>
+</head>
+
+<body>
+<div id="app">
+	<p><button onclick="getWxCode()">获取微信code</button></p>
+</div>
+</body>
+</html>
