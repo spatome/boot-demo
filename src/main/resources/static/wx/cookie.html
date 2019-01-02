@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>微信测试</title>
+<script src="/js/vue.min.js"></script>
+<script src="/js/index.js"></script>
+</head>
+
+<body>
+<div id="app">
+	<p><button v-on:click="getWxOpenId">获取微信openId</button></p>
+</div>
+
+<script type="text/javascript">
+var vm = new Vue({
+	el: '#app',
+	data:{
+		msg: ''
+	},
+
+  	methods: {
+	    getWxOpenId: function(){
+	    	var openId = this.$Cookies.get('wx6e0110829ad0f4b4.openId');
+	    	console.log('cookie保存的openId:'+openId);
+	    	if(!!openId){
+	    		console.log('cookie有内容:'+openId);
+	    	}else{
+	    		openId = '222222222222';
+	    		this.$Cookies.set('wx6e0110829ad0f4b4.openId', openId, {expires:365});
+		        console.log('cookie要保存的内容:'+openId);	    		
+	    	}
+	    }
+  	}
+})
+</script>
+</body>
+</html>

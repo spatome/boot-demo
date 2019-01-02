@@ -7,6 +7,9 @@
 //安装到你的项目目录npm install --save-dev webpack
 (5)安装 npm install axios
 (6)安装qs: npm i qs -D
+(7)安装uglifyjs: npm install uglifyjs-webpack-plugin --save-dev
+(8)安装es5: npm install --save-div babel-preset-es2015
+(9)安装npm install js-cookie --save
 (7)创建 webpack.config.js
 module.exports = {
 	mode: 'production',
@@ -37,12 +40,15 @@ module.exports = {
 
 //main.js
 import axios from 'axios'
+import Cookies from 'js-cookie'
 import {post,fetch,patch,put} from './js/http'
+
 //定义全局变量
 Vue.prototype.$post=post;
 Vue.prototype.$fetch=fetch;
 Vue.prototype.$patch=patch;
 Vue.prototype.$put=put;
+Vue.prototype.$Cookies=Cookies;
 
 
 //-----------------http.js------------------

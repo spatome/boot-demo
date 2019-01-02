@@ -62,6 +62,8 @@ public class WxController extends BaseController {
 	{
 		BaseVO<Object> result = new BaseVO<Object>();
 
+		System.out.println("2");
+		
 		String url = "https://api.weixin.qq.com/sns/oauth2/access_token"
 				+ "?appid="+myConfig.getWxAppId()
 				+ "&secret="+myConfig.getWxAppSecret()

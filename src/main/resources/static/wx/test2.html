@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>判断手机是否安装微信</title>
+</head>
+<body>
+<a href="javascript:testApp('weixin://dl/profile')" class="dl-btn" id="download">扫一扫</a>
+<script>
+function testApp(url) {
+	var ifr = document.createElement("iframe");
+	ifr.setAttribute('src', url);
+	ifr.setAttribute('style', 'display:none');
+	document.body.appendChild(ifr);
+}
+</script>
+</body>
+</html>

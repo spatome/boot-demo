@@ -1,6 +1,14 @@
 server:
   port: 8080
 
+spring:
+  redis:
+    host: 192.168.0.132
+    port: 6379
+    database: 3
+    password: kxyx92108
+    timeout: 10000
+
 my:
   wx-app-id: wx6e0110829ad0f4b4
   wx-app-secret: 3d74849a8bf6abd82549894547684dc6

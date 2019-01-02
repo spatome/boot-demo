@@ -3,7 +3,9 @@ package com.spatome.boot.service;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 
+import com.spatome.boot.common.config.MyConfig;
 import com.spatome.boot.common.exception.SException;
 import com.spatome.boot.factory.ServiceFactory;
 
@@ -11,6 +13,12 @@ public abstract class BaseService {
 	@Autowired
 	protected ServiceFactory serviceFactoryImpl;
 
+	@Autowired
+	protected MyConfig myConfig;
+	
+	@Autowired
+	protected StringRedisTemplate stringRedisTemplate;
+	
 	/**
 	 * @Description: 不空检查
 	 */

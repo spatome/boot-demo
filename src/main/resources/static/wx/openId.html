@@ -25,9 +25,9 @@ var vm = new Vue({
 
   	methods: {
 	    getWxCode: function(){
-	    	window.location.href = this.wx_code_url
+	    	location.href = this.wx_code_url
 					+ "?appid="+this.wx_app_id
-					+ "&redirect_uri="+encodeURIComponent(window.location.href)
+					+ "&redirect_uri="+encodeURIComponent(location.href)
 					+ "&response_type=code"
 					+ "&scope=snsapi_base"
 					+ "&state=zw001"
@@ -38,20 +38,28 @@ var vm = new Vue({
 	    },
 
 	    getWxOpenId: function(){
-	    	this.$fetch('/wx/getOpenId', {
-	    		code: this.getWxCode()
-	    	}).then((response) => {
-	        	this.msg = response.body;
-	        	console.log(response.body);
-	      	})
+	    	var openId = this.$Cookies.get(this.wx_app_id+'.openId');
+	    	if(!!openId){
+	    		console.log('cookie保存的openId:'+openId);
+	    		this.msg = openId;
+	    	}else{
+  		    	this.$fetch('/wx/getOpenId', {
+		    		code: this.getWxCode()
+		    	}).then((response) => {
+		    		openId = response.body;
+		    		this.$Cookies.set(this.wx_app_id+'.openId', openId, {expires:365});
+		        	console.log("新的openId:"+openId);
+		        	this.msg = openId;
+		      	})
+	    	}
 	    },
 
  	 	getQueryString: function(name){
-	        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
+	        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
 	        var r = window.location.search.substr(1).match(reg);
 	        if (r != null) return unescape(r[2]); 
 	        return null;
-	    }  
+	    }
   	}
 })
 </script>
