@@ -38,7 +38,7 @@ public class Tran99999ServiceImpl extends BaseService implements TranService {
 
 		log.debug("===========================业务处理=========================");
 		CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
-		super.rabbitTemplate.convertAndSend("amq.fanout", "rk.test", (Object)userName, correlationData);
+		super.rabbitTemplate.convertAndSend("fanout.test", "", (Object)userName, correlationData);
 
 		result.setBody(":"+userName);
 
