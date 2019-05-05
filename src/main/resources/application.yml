@@ -1,6 +1,12 @@
 server:
-  port: 8060
+  port: 8080
 
-my:
-  user-name: zw
-  zw-count: 3
+spring:
+  rabbitmq:
+    host: 192.168.0.185
+    port: 5672
+    virtual-host: cloud
+    username: spatome
+    password: spatome
+    publisher-confirms: true
+    publisher-returns: true

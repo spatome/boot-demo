@@ -2,12 +2,10 @@ package com.spatome.boot.service.impl;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.amqp.rabbit.support.CorrelationData;
 import org.springframework.stereotype.Service;
 
 import com.spatome.boot.controller.BaseController.BaseVO;
@@ -23,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @Service
-public class Tran99999ServiceImpl extends BaseService implements TranService {
+public class Tran99998ServiceImpl extends BaseService implements TranService {
 
 	@Override
 	public Object execute(Map<String, String> dataMap, HttpServletRequest request, HttpServletResponse response) {
@@ -37,8 +35,7 @@ public class Tran99999ServiceImpl extends BaseService implements TranService {
 		super.checkNotEmpty(paramMap);
 
 		log.debug("===========================业务处理=========================");
-		CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
-		super.rabbitTemplate.convertAndSend("amq.fanout", "rk.test", (Object)userName, correlationData);
+		super.rabbitTemplate.convertAndSend("test.queue", userName);
 
 		result.setBody(":"+userName);
 

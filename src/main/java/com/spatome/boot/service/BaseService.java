@@ -2,12 +2,16 @@ package com.spatome.boot.service;
 
 import java.util.Map;
 
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.spatome.boot.common.exception.SException;
 import com.spatome.boot.factory.ServiceFactory;
 
 public abstract class BaseService {
+
+	@Autowired
+	protected RabbitTemplate rabbitTemplate;
 	@Autowired
 	protected ServiceFactory serviceFactoryImpl;
 

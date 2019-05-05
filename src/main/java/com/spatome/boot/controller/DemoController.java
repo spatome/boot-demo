@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.spatome.boot.common.config.MyConfig;
 import com.spatome.boot.vo.SSVO;
 
 import lombok.extern.slf4j.Slf4j;
@@ -22,8 +21,6 @@ public class DemoController extends BaseController {
     	BaseVO<SSVO> result = new BaseVO<SSVO>();
 
     	log.info("this is demo/test");
-    	System.out.println(MyConfig.userName);
-
     	result.setBody(new SSVO("boot.demo集群0"));
 
         return result;

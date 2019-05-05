@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.spatome.boot.common.config.MyConfig;
 import com.spatome.boot.common.exception.SException;
 import com.spatome.boot.factory.ServiceFactory;
 
@@ -17,8 +16,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class BaseController {
 
-	@Autowired
-	protected MyConfig spatomeConfig;
 	@Autowired
 	protected ServiceFactory serviceFactory;
 
