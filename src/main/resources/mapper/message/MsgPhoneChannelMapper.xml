@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shby.message.dao.MsgPhoneChannelMapper" >
+  <resultMap id="BaseResultMap" type="com.shby.message.entity.MsgPhoneChannel" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="channel_id" property="channelId" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="port_url" property="portUrl" jdbcType="VARCHAR" />
+    <result column="sign_key" property="signKey" jdbcType="VARCHAR" />
+    <result column="system_sign_key" property="systemSignKey" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, channel_id, name, port_url, sign_key, system_sign_key, status, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from msg_phone_channel
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from msg_phone_channel
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.shby.message.entity.MsgPhoneChannel" useGeneratedKeys="true" keyProperty="id">
+    insert into msg_phone_channel (id, channel_id, name, 
+      port_url, sign_key, system_sign_key, 
+      status, create_time, update_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{channelId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{portUrl,jdbcType=VARCHAR}, #{signKey,jdbcType=VARCHAR}, #{systemSignKey,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.shby.message.entity.MsgPhoneChannel" useGeneratedKeys="true" keyProperty="id">
+    insert into msg_phone_channel
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="channelId != null" >
+        channel_id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="portUrl != null" >
+        port_url,
+      </if>
+      <if test="signKey != null" >
+        sign_key,
+      </if>
+      <if test="systemSignKey != null" >
+        system_sign_key,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="channelId != null" >
+        #{channelId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="portUrl != null" >
+        #{portUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="signKey != null" >
+        #{signKey,jdbcType=VARCHAR},
+      </if>
+      <if test="systemSignKey != null" >
+        #{systemSignKey,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shby.message.entity.MsgPhoneChannel" >
+    update msg_phone_channel
+    <set >
+      <if test="channelId != null" >
+        channel_id = #{channelId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="portUrl != null" >
+        port_url = #{portUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="signKey != null" >
+        sign_key = #{signKey,jdbcType=VARCHAR},
+      </if>
+      <if test="systemSignKey != null" >
+        system_sign_key = #{systemSignKey,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shby.message.entity.MsgPhoneChannel" >
+    update msg_phone_channel
+    set channel_id = #{channelId,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      port_url = #{portUrl,jdbcType=VARCHAR},
+      sign_key = #{signKey,jdbcType=VARCHAR},
+      system_sign_key = #{systemSignKey,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+
+  <select id="selectByBean" resultMap="BaseResultMap" parameterType="com.shby.message.entity.MsgPhoneChannel">
+	select <include refid="Base_Column_List" />
+	from msg_phone_channel T WHERE 1 = 1
+      <if test="channelId != null" >
+        AND channel_id = #{channelId,jdbcType=VARCHAR}
+      </if>
+      <if test="name != null" >
+        AND name = #{name,jdbcType=VARCHAR}
+      </if>
+      <if test="portUrl != null" >
+        AND port_url = #{portUrl,jdbcType=VARCHAR}
+      </if>
+      <if test="signKey != null" >
+        AND sign_key = #{signKey,jdbcType=VARCHAR}
+      </if>
+      <if test="systemSignKey != null" >
+        AND system_sign_key = #{systemSignKey,jdbcType=VARCHAR}
+      </if>
+      <if test="status != null" >
+        AND status = #{status,jdbcType=VARCHAR}
+      </if>
+      <if test="createTime != null" >
+        AND create_time = #{createTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="updateTime != null" >
+        AND update_time = #{updateTime,jdbcType=TIMESTAMP}
+      </if>
+  </select>
+</mapper>

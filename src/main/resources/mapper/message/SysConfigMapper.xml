@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shby.message.dao.SysConfigMapper" >
+  <resultMap id="BaseResultMap" type="com.shby.message.entity.SysConfig" >
+    <id column="key_id" property="keyId" jdbcType="VARCHAR" />
+    <result column="key_value" property="keyValue" jdbcType="VARCHAR" />
+    <result column="key_group" property="keyGroup" jdbcType="VARCHAR" />
+    <result column="descs" property="descs" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    key_id, key_value, key_group, descs
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_config
+    where key_id = #{keyId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sys_config
+    where key_id = #{keyId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.shby.message.entity.SysConfig" >
+    insert into sys_config (key_id, key_value, key_group, 
+      descs)
+    values (#{keyId,jdbcType=VARCHAR}, #{keyValue,jdbcType=VARCHAR}, #{keyGroup,jdbcType=VARCHAR}, 
+      #{descs,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shby.message.entity.SysConfig" >
+    insert into sys_config
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="keyId != null" >
+        key_id,
+      </if>
+      <if test="keyValue != null" >
+        key_value,
+      </if>
+      <if test="keyGroup != null" >
+        key_group,
+      </if>
+      <if test="descs != null" >
+        descs,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="keyId != null" >
+        #{keyId,jdbcType=VARCHAR},
+      </if>
+      <if test="keyValue != null" >
+        #{keyValue,jdbcType=VARCHAR},
+      </if>
+      <if test="keyGroup != null" >
+        #{keyGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="descs != null" >
+        #{descs,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shby.message.entity.SysConfig" >
+    update sys_config
+    <set >
+      <if test="keyValue != null" >
+        key_value = #{keyValue,jdbcType=VARCHAR},
+      </if>
+      <if test="keyGroup != null" >
+        key_group = #{keyGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="descs != null" >
+        descs = #{descs,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where key_id = #{keyId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shby.message.entity.SysConfig" >
+    update sys_config
+    set key_value = #{keyValue,jdbcType=VARCHAR},
+      key_group = #{keyGroup,jdbcType=VARCHAR},
+      descs = #{descs,jdbcType=VARCHAR}
+    where key_id = #{keyId,jdbcType=VARCHAR}
+  </update>
+
+
+  <select id="selectByBean" resultMap="BaseResultMap" parameterType="com.shby.message.entity.SysConfig">
+	select <include refid="Base_Column_List" />
+	from sys_config T WHERE 1 = 1
+      <if test="keyValue != null" >
+        AND key_value = #{keyValue,jdbcType=VARCHAR}
+      </if>
+      <if test="keyGroup != null" >
+        AND key_group = #{keyGroup,jdbcType=VARCHAR}
+      </if>
+      <if test="descs != null" >
+        AND descs = #{descs,jdbcType=VARCHAR}
+      </if>
+  </select>
+</mapper>
