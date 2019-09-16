@@ -11,6 +11,7 @@ import com.shby.api.dto.msg.MsgMailMessageGroupDto;
 import com.shby.api.dto.msg.MsgMailMessageGroupDto.Data;
 import com.shby.message.common.constants.MyCache;
 import com.shby.message.common.enums.ChannelTypeEnum;
+import com.shby.message.entity.MsgBatchEmailMessage;
 import com.shby.message.entity.MsgEmailMessage;
 import com.shby.message.service.BaseService;
 import com.shby.message.service.MessageMailGroupService;
@@ -35,7 +36,7 @@ public class MessageMailGroupServiceImpl extends BaseService implements MessageM
 			return;
 		}
 
-		if(StringUtils.isNotBlank(dto.getTempletId())){
+		if(StringUtils.isNotBlank(dto.getTemplateId())){
 			//模板消息
 			this.doTemplatMessage(dto);
 		}else{
@@ -47,12 +48,12 @@ public class MessageMailGroupServiceImpl extends BaseService implements MessageM
 	 * 模板消息
 	 */
 	private void doTemplatMessage(MsgMailMessageGroupDto dto){
-		String content = MyCache.MAIL_TEMPLATE_MAP.get(dto.getTempletId());
+		String content = MyCache.MAIL_TEMPLATE_MAP.get(dto.getTemplateId());
 		if(StringUtils.isBlank(content)){
 			this.save(dto, false, MyCache.MAIL_DTO.getChannelId(), "模板不存在");
 			return;
 		}
-		String newContent = SUtil.updateContent(content, dto.getTempletParams());
+		String newContent = SUtil.updateContent(content, dto.getTemplateParams());
 		boolean isSend = this.send(this.getMails(dto.getDataList()), dto.getMessageTitle(), newContent, ChannelTypeEnum.MAIL.getText());
 		this.save(dto, isSend, MyCache.MAIL_DTO.getChannelId(), null);
 	}
@@ -67,6 +68,30 @@ public class MessageMailGroupServiceImpl extends BaseService implements MessageM
 	private void save(MsgMailMessageGroupDto dto, boolean isSend, String channelId, String descs) {
 		Date date = new Date();
 
+		StringBuffer userIds = new StringBuffer("");
+		StringBuffer userNames = new StringBuffer("");
+		StringBuffer mails = new StringBuffer("");
+		for (Data data : dto.getDataList()) {
+			if(data.getUserId()!=null) userIds.append(data.getUserId()+",");
+			if(data.getUserName()!=null) userNames.append(data.getUserName()).append(",");
+			mails.append(data.getMail()).append(",");
+		}
+		MsgBatchEmailMessage newMsgBatchEmailMessage = new MsgBatchEmailMessage();
+		newMsgBatchEmailMessage.setCreateTime(date);
+		newMsgBatchEmailMessage.setUpdateTime(date);
+		newMsgBatchEmailMessage.setMsgId(dto.getMsgId());
+		newMsgBatchEmailMessage.setUserIds(userIds.toString());
+		newMsgBatchEmailMessage.setUserNames(userNames.toString());
+		newMsgBatchEmailMessage.setMails(mails.toString());
+		newMsgBatchEmailMessage.setTemplateId(tranLong(dto.getTemplateId()));
+		newMsgBatchEmailMessage.setTemplateParams(dto.getTemplateParams());
+		newMsgBatchEmailMessage.setMessageTitle(dto.getMessageTitle());
+		newMsgBatchEmailMessage.setMessageContent(dto.getMessageContent());
+		newMsgBatchEmailMessage.setChannelId(channelId);
+		newMsgBatchEmailMessage.setOperatorId(dto.getOperatorId());
+		newMsgBatchEmailMessage.setOperatorName(dto.getOperatorName());
+		daoFactory.getMsgBatchEmailMessageMapper().insertSelective(newMsgBatchEmailMessage);
+
 		if(isSend){
 			//发送成功
 			List<MsgEmailMessage> msgEmailMessageList = new ArrayList<MsgEmailMessage>();
@@ -78,14 +103,14 @@ public class MessageMailGroupServiceImpl extends BaseService implements MessageM
 				newMsgEmailMessage.setUserId(data.getUserId());
 				newMsgEmailMessage.setUserName(data.getUserName());
 				newMsgEmailMessage.setMail(data.getMail());
-				newMsgEmailMessage.setTemplateId(StringUtils.isBlank(dto.getTempletId()) ? null
-						: Long.valueOf(dto.getTempletId()));
-				newMsgEmailMessage.setTempletParams(dto.getTempletParams());
+				newMsgEmailMessage.setTemplateId(tranLong(dto.getTemplateId()));
+				newMsgEmailMessage.setTempleteParams(dto.getTemplateParams());
 				newMsgEmailMessage.setMessageTitle(dto.getMessageTitle());
 				newMsgEmailMessage.setMessageContent(dto.getMessageContent());
 				newMsgEmailMessage.setChannelId(channelId);
 				newMsgEmailMessage.setOperatorId(dto.getOperatorId());
 				newMsgEmailMessage.setOperatorName(dto.getOperatorName());
+				newMsgEmailMessage.setIsBatch((byte)1);
 				msgEmailMessageList.add(newMsgEmailMessage);
 			}
 			if (msgEmailMessageList.size() > 0) {

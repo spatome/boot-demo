@@ -33,6 +33,3 @@ pagehelper:
   helper-dialect: mysql
   reasonable: false
   offsetAsPageNum: true
-
-my:
-  

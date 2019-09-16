@@ -27,7 +27,7 @@ public class MessageMailServiceImpl extends BaseService implements MessageMailSe
 	public void execute(MsgMailMessageDto dto) {
 		log.info("《=="+dto);
 
-		if(StringUtils.isNotBlank(dto.getTempletId())){
+		if(StringUtils.isNotBlank(dto.getTemplateId())){
 			//模板消息
 			this.doTemplatMessage(dto);
 		}else{
@@ -39,12 +39,12 @@ public class MessageMailServiceImpl extends BaseService implements MessageMailSe
 	 * 模板消息
 	 */
 	private void doTemplatMessage(MsgMailMessageDto dto){
-		String content = MyCache.MAIL_TEMPLATE_MAP.get(dto.getTempletId());
+		String content = MyCache.MAIL_TEMPLATE_MAP.get(dto.getTemplateId());
 		if(StringUtils.isBlank(content)){
 			this.save(dto, false, MyCache.MAIL_DTO.getChannelId(), "模板不存在");
 			return;
 		}
-		String newContent = SUtil.updateContent(content, dto.getTempletParams());
+		String newContent = SUtil.updateContent(content, dto.getTemplateParams());
 		boolean isSend = this.send(dto.getMail(), dto.getMessageTitle(), newContent, dto.getMessageContentType());
 		this.save(dto, isSend, MyCache.MAIL_DTO.getChannelId(), null);
 	}
@@ -68,9 +68,8 @@ public class MessageMailServiceImpl extends BaseService implements MessageMailSe
 			newMsgEmailMessage.setUserId(dto.getUserId());
 			newMsgEmailMessage.setUserName(dto.getUserName());
 			newMsgEmailMessage.setMail(dto.getMail());
-			newMsgEmailMessage.setTemplateId(StringUtils.isBlank(dto.getTempletId()) ? null
-					: Long.valueOf(dto.getTempletId()));
-			newMsgEmailMessage.setTempletParams(dto.getTempletParams());
+			newMsgEmailMessage.setTemplateId(tranLong(dto.getTemplateId()));
+			newMsgEmailMessage.setTempleteParams(dto.getTemplateParams());
 			newMsgEmailMessage.setMessageTitle(dto.getMessageTitle());
 			newMsgEmailMessage.setMessageContent(dto.getMessageContent());
 			newMsgEmailMessage.setChannelId(channelId);

@@ -25,7 +25,7 @@ public class MessageSiteServiceImpl extends BaseService implements MessageSiteSe
 	@Override
 	public void execute(MsgSiteMessageDto dto) {
 		log.info("《==" + dto);
-		if (StringUtils.isNotBlank(dto.getTempletId())) {
+		if (StringUtils.isNotBlank(dto.getTemplateId())) {
 			// 模板消息
 			this.doTemplatMessage(dto);
 		} else {
@@ -37,13 +37,14 @@ public class MessageSiteServiceImpl extends BaseService implements MessageSiteSe
 	 * 模板消息
 	 */
 	private void doTemplatMessage(MsgSiteMessageDto dto) {
-		String content = MyCache.SITE_TEMPLATE_MAP.get(dto.getTempletId());
+		String content = MyCache.SITE_TEMPLATE_MAP.get(dto.getTemplateId());
 		if (StringUtils.isBlank(content)) {
 			this.save(dto, false, "模板不存在");
 			return;
 		}
-		String newContent = SUtil.updateContent(content, dto.getTempletParams());
-		this.save(dto, isSend, MyCache.SMS_DTO.getChannelId(), null);
+		String newContent = SUtil.updateContent(content, dto.getTemplateParams());
+		dto.setMessageContent(newContent);
+		this.save(dto, true, null);
 	}
 
 	/**
@@ -63,9 +64,8 @@ public class MessageSiteServiceImpl extends BaseService implements MessageSiteSe
 			newRecord.setMsgId(dto.getMsgId());
 			newRecord.setUserId(dto.getUserId());
 			newRecord.setUserName(dto.getUserName());
-			newRecord.setTemplateId(StringUtils.isBlank(dto.getTempletId()) ? null
-					: Long.valueOf(dto.getTempletId()));
-			newRecord.setTempletParams(dto.getTempletParams());
+			newRecord.setTemplateId(tranLong(dto.getTemplateId()));
+			newRecord.setTempleteParams(dto.getTemplateParams());
 			newRecord.setMessageTitle(dto.getMessageTitle());
 			newRecord.setMessageContent(dto.getMessageContent());
 			newRecord.setOperatorId(dto.getOperatorId());

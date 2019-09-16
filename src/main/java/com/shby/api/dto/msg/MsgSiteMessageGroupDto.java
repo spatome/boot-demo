@@ -25,8 +25,8 @@ public class MsgSiteMessageGroupDto implements Serializable {
 	private String operatorName;
 
 	// 模板
-	private String templetId;
-	private String templetParams; // #分割
+	private String templateId;
+	private String templateParams;		//#分割
 
 	public String getMsgId() {
 		return msgId;
@@ -71,20 +71,20 @@ public class MsgSiteMessageGroupDto implements Serializable {
 		this.operatorName = operatorName;
 	}
 
-	public String getTempletId() {
-		return templetId;
+	public String getTemplateId() {
+		return templateId;
 	}
 
-	public void setTempletId(String templetId) {
-		this.templetId = templetId;
+	public void setTemplateId(String templateId) {
+		this.templateId = templateId;
 	}
 
-	public String getTempletParams() {
-		return templetParams;
+	public String getTemplateParams() {
+		return templateParams;
 	}
 
-	public void setTempletParams(String templetParams) {
-		this.templetParams = templetParams;
+	public void setTemplateParams(String templateParams) {
+		this.templateParams = templateParams;
 	}
 
 	public Long getOperatorId() {

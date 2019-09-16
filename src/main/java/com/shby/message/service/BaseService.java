@@ -3,6 +3,7 @@ package com.shby.message.service;
 import java.util.Date;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -37,6 +38,10 @@ public abstract class BaseService {
 		}
 	}
 
+	public Long tranLong(String s){
+		return StringUtils.isBlank(s) ? null : Long.valueOf(s);
+	}
+	
 	/**
 	 * 省事
 	 */

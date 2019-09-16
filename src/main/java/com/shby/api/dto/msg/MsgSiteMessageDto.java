@@ -25,6 +25,6 @@ public class MsgSiteMessageDto implements Serializable {
 	private String operatorName;
 
 	//模板
-	private String templetId;
-	private String templetParams;		//#分割
+	private String templateId;
+	private String templateParams;		//#分割
 }

@@ -10,6 +10,7 @@ import com.shby.api.dto.msg.MsgPhoneMessageDto;
 import com.shby.message.common.constants.MyCache;
 import com.shby.message.common.enums.ChannelTypeEnum;
 import com.shby.message.entity.MsgPhoneMessage;
+import com.shby.message.oapi.ResultBO;
 import com.shby.message.oapi.smsyp.SmsSendTypeEnum;
 import com.shby.message.service.BaseService;
 import com.shby.message.service.MessagePhoneService;
@@ -29,7 +30,7 @@ public class MessagePhoneServiceImpl extends BaseService implements MessagePhone
 	@Override
 	public void execute(MsgPhoneMessageDto dto) {
 		log.info("《==" + dto);
-		if (StringUtils.isNotBlank(dto.getTempletId())) {
+		if (StringUtils.isNotBlank(dto.getTemplateId())) {
 			// 模板消息
 			this.doTemplatMessage(dto);
 		} else {
@@ -41,22 +42,22 @@ public class MessagePhoneServiceImpl extends BaseService implements MessagePhone
 	 * 模板消息
 	 */
 	private void doTemplatMessage(MsgPhoneMessageDto dto) {
-		String content = MyCache.SMS_TEMPLATE_MAP.get(dto.getTempletId());
+		String content = MyCache.SMS_TEMPLATE_MAP.get(dto.getTemplateId());
 		if (StringUtils.isBlank(content)) {
 			this.save(dto, false, MyCache.SMS_DTO.getChannelId(), "模板不存在");
 			return;
 		}
-		String newContent = SUtil.updateContent(content, dto.getTempletParams());
-		boolean isSend = this.send(dto.getPhoneNum(), newContent);
-		this.save(dto, isSend, MyCache.SMS_DTO.getChannelId(), null);
+		String newContent = SUtil.updateContent(content, dto.getTemplateParams());
+		ResultBO resultBO = this.send(dto.getPhoneNum(), newContent);
+		this.save(dto, resultBO.isSend(), MyCache.SMS_DTO.getChannelId(), resultBO.getMessage());
 	}
 
 	/**
 	 * 非模板消息
 	 */
 	private void doNotTemplatMessage(MsgPhoneMessageDto dto) {
-		boolean isSend = this.send(dto.getPhoneNum(), dto.getMessageContent());
-		this.save(dto, isSend, MyCache.SMS_DTO.getChannelId(), null);
+		ResultBO resultBO = this.send(dto.getPhoneNum(), dto.getMessageContent());
+		this.save(dto, resultBO.isSend(), MyCache.SMS_DTO.getChannelId(), resultBO.getMessage());
 	}
 
 	private void save(MsgPhoneMessageDto dto, boolean isSend, String channelId, String descs) {
@@ -71,9 +72,8 @@ public class MessagePhoneServiceImpl extends BaseService implements MessagePhone
 			newMsgPhoneMessage.setUserId(dto.getUserId());
 			newMsgPhoneMessage.setUserName(dto.getUserName());
 			newMsgPhoneMessage.setPhoneNum(dto.getPhoneNum());
-			newMsgPhoneMessage.setTemplateId(StringUtils.isBlank(dto.getTempletId()) ? null
-					: Long.valueOf(dto.getTempletId()));
-			newMsgPhoneMessage.setTempletParams(dto.getTempletParams());
+			newMsgPhoneMessage.setTemplateId(tranLong(dto.getTemplateId()));
+			newMsgPhoneMessage.setTempleteParams(dto.getTemplateParams());
 			newMsgPhoneMessage.setMessageTitle(dto.getMessageTitle());
 			newMsgPhoneMessage.setMessageContent(dto.getMessageContent());
 			newMsgPhoneMessage.setChannelId(channelId);
@@ -89,7 +89,7 @@ public class MessagePhoneServiceImpl extends BaseService implements MessagePhone
 	}
 
 	@Override
-	public boolean send(String phone, String content) {
+	public ResultBO send(String phone, String content) {
 		return serviceFactory.getSmsBaseService().sendMessage(MyCache.SMS_DTO, SmsSendTypeEnum.SYSTEM, phone, content);
 	}
 }

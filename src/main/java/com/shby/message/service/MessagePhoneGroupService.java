@@ -1,6 +1,7 @@
 package com.shby.message.service;
 
 import com.shby.api.dto.msg.MsgPhoneMessageGroupDto;
+import com.shby.message.oapi.ResultBO;
 
 /**
  * @author zhangwei
@@ -13,5 +14,5 @@ public interface MessagePhoneGroupService {
 
 	public void execute(MsgPhoneMessageGroupDto dto);
 
-	public boolean send(String phone, String content);
+	public ResultBO send(String phone, String content);
 }

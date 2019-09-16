@@ -11,5 +11,5 @@ public interface MessageSiteGroupService {
 
 	public void execute(MsgSiteMessageGroupDto dto);
 
-	public boolean send(String phone, String content);
+	public boolean send(String to, String title, String content);
 }

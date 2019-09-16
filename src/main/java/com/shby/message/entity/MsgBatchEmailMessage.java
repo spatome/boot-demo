@@ -15,7 +15,7 @@ public class MsgBatchEmailMessage {
 
     private Long templateId;
 
-    private String templeteParams;
+    private String templateParams;
 
     private String messageTitle;
 
@@ -23,9 +23,7 @@ public class MsgBatchEmailMessage {
 
     private String channelId;
 
-    private Short msgStatus;
-
-    private String sendIp;
+    private Byte isBatch;
 
     private Long operatorId;
 
@@ -83,15 +81,15 @@ public class MsgBatchEmailMessage {
         this.templateId = templateId;
     }
 
-    public String getTempleteParams() {
-		return templeteParams;
-	}
+    public String getTemplateParams() {
+        return templateParams;
+    }
 
-	public void setTempleteParams(String templeteParams) {
-		this.templeteParams = templeteParams;
-	}
+    public void setTemplateParams(String templateParams) {
+        this.templateParams = templateParams == null ? null : templateParams.trim();
+    }
 
-	public String getMessageTitle() {
+    public String getMessageTitle() {
         return messageTitle;
     }
 
@@ -115,20 +113,12 @@ public class MsgBatchEmailMessage {
         this.channelId = channelId == null ? null : channelId.trim();
     }
 
-    public Short getMsgStatus() {
-        return msgStatus;
+    public Byte getIsBatch() {
+        return isBatch;
     }
 
-    public void setMsgStatus(Short msgStatus) {
-        this.msgStatus = msgStatus;
-    }
-
-    public String getSendIp() {
-        return sendIp;
-    }
-
-    public void setSendIp(String sendIp) {
-        this.sendIp = sendIp == null ? null : sendIp.trim();
+    public void setIsBatch(Byte isBatch) {
+        this.isBatch = isBatch;
     }
 
     public Long getOperatorId() {

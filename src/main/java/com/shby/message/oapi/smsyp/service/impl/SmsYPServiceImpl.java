@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.shby.message.oapi.ResultBO;
 import com.shby.message.oapi.smsyp.HttpRequestProxy;
 import com.shby.message.oapi.smsyp.SmsDto;
 import com.shby.message.oapi.smsyp.SmsSendTypeEnum;
@@ -25,8 +26,8 @@ public class SmsYPServiceImpl implements SmsBaseService {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public boolean sendMessage(SmsDto smdDto, SmsSendTypeEnum type, String phone, String content) {
-		boolean result = false;
+	public ResultBO sendMessage(SmsDto smdDto, SmsSendTypeEnum type, String phone, String content) {
+		ResultBO result = new ResultBO();
 
 		String smsPwd = SmsSendTypeEnum.SYSTEM == type ? smdDto.getSmsportPwdSystem() : smdDto.getSmsportPwd();
 		Map<String, String> parameters = new HashMap<String, String>();
@@ -41,12 +42,14 @@ public class SmsYPServiceImpl implements SmsBaseService {
 			Integer code = (Integer) retMap.get("code");
 			if (code.intValue() == 0) {
 				log.debug("返回JSON:" + ret);
-				result = true;
+				result.setCodeMessage(true, code+"", ret);
 			} else {
 				log.error("Remote service invoke error[" + ret + "]");
+				result.setCodeMessage(false, code+"", ret);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			result.setCodeMessage(false, "1", "(解析异常)"+ret);
 		}
 
 		return result;

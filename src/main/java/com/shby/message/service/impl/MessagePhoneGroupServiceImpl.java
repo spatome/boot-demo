@@ -12,7 +12,9 @@ import com.shby.api.dto.msg.MsgPhoneMessageGroupDto;
 import com.shby.api.dto.msg.MsgPhoneMessageGroupDto.Data;
 import com.shby.message.common.constants.MyCache;
 import com.shby.message.common.enums.ChannelTypeEnum;
+import com.shby.message.entity.MsgBatchPhoneMessage;
 import com.shby.message.entity.MsgPhoneMessage;
+import com.shby.message.oapi.ResultBO;
 import com.shby.message.oapi.smsyp.SmsSendTypeEnum;
 import com.shby.message.service.BaseService;
 import com.shby.message.service.MessagePhoneGroupService;
@@ -37,7 +39,7 @@ public class MessagePhoneGroupServiceImpl extends BaseService implements Message
 			return;
 		}
 
-		if (StringUtils.isNotBlank(dto.getTempletId())) {
+		if (StringUtils.isNotBlank(dto.getTemplateId())) {
 			// 模板消息
 			this.doTemplatMessage(dto);
 		} else {
@@ -50,26 +52,51 @@ public class MessagePhoneGroupServiceImpl extends BaseService implements Message
 	 * 模板消息
 	 */
 	private void doTemplatMessage(MsgPhoneMessageGroupDto dto) {
-		String content = MyCache.SMS_TEMPLATE_MAP.get(dto.getTempletId());
+		String content = MyCache.SMS_TEMPLATE_MAP.get(dto.getTemplateId());
 		if (StringUtils.isBlank(content)) {
 			this.save(dto, false, MyCache.SMS_DTO.getChannelId(), "模板不存在");
 			return;
 		}
-		String newContent = SUtil.updateContent(content, dto.getTempletParams());
-		boolean isSend = this.send(this.getPhones(dto.getDataList()), newContent);
-		this.save(dto, isSend, MyCache.SMS_DTO.getChannelId(), null);
+		String newContent = SUtil.updateContent(content, dto.getTemplateParams());
+		ResultBO resultBO = this.send(this.getPhones(dto.getDataList()), newContent);
+		this.save(dto, resultBO.isSend(), MyCache.SMS_DTO.getChannelId(), resultBO.getMessage());
 	}
 
 	/**
 	 * 非模板消息
 	 */
 	private void doNotTemplatMessage(MsgPhoneMessageGroupDto dto) {
-		boolean isSend = this.send(this.getPhones(dto.getDataList()), dto.getMessageContent());
-		this.save(dto, isSend, MyCache.SMS_DTO.getChannelId(), null);
+		ResultBO resultBO = this.send(this.getPhones(dto.getDataList()), dto.getMessageContent());
+		this.save(dto, resultBO.isSend(), MyCache.SMS_DTO.getChannelId(), resultBO.getMessage());
 	}
 
 	private void save(MsgPhoneMessageGroupDto dto, boolean isSend, String channelId, String descs) {
 		Date date = new Date();
+
+		StringBuffer userIds = new StringBuffer("");
+		StringBuffer userNames = new StringBuffer("");
+		StringBuffer phoneNums = new StringBuffer("");
+		for (Data data : dto.getDataList()) {
+			if(data.getUserId()!=null) userIds.append(data.getUserId()+",");
+			if(data.getUserName()!=null) userNames.append(data.getUserName()).append(",");
+			phoneNums.append(data.getPhoneNum()).append(",");
+		}
+		MsgBatchPhoneMessage newMsgBatchPhoneMessage = new MsgBatchPhoneMessage();
+		newMsgBatchPhoneMessage.setCreateTime(date);
+		newMsgBatchPhoneMessage.setUpdateTime(date);
+		newMsgBatchPhoneMessage.setMsgId(dto.getMsgId());
+		newMsgBatchPhoneMessage.setUserIds(userIds.toString());
+		newMsgBatchPhoneMessage.setUserNames(userNames.toString());
+		newMsgBatchPhoneMessage.setPhoneNums(phoneNums.toString());
+		newMsgBatchPhoneMessage.setTemplateId(tranLong(dto.getTemplateId()));
+		newMsgBatchPhoneMessage.setTempleteParams(dto.getTemplateParams());
+		newMsgBatchPhoneMessage.setMessageTitle(dto.getMessageTitle());
+		newMsgBatchPhoneMessage.setMessageContent(dto.getMessageContent());
+		newMsgBatchPhoneMessage.setChannelId(channelId);
+		newMsgBatchPhoneMessage.setOperatorId(dto.getOperatorId());
+		newMsgBatchPhoneMessage.setOperatorName(dto.getOperatorName());
+		daoFactory.getMsgBatchPhoneMessageMapper().insertSelective(newMsgBatchPhoneMessage);
+
 		if (isSend) {
 			// 发送成功
 			List<MsgPhoneMessage> msgPhoneMessageList = new ArrayList<MsgPhoneMessage>();
@@ -81,13 +108,14 @@ public class MessagePhoneGroupServiceImpl extends BaseService implements Message
 				newMsgPhoneMessage.setUserId(data.getUserId());
 				newMsgPhoneMessage.setUserName(data.getUserName());
 				newMsgPhoneMessage.setPhoneNum(data.getPhoneNum());
-				newMsgPhoneMessage.setTemplateId(StringUtils.isBlank(dto.getTempletId()) ? null : Long.valueOf(dto.getTempletId()));
-				newMsgPhoneMessage.setTempletParams(dto.getTempletParams());
+				newMsgPhoneMessage.setTemplateId(tranLong(dto.getTemplateId()));
+				newMsgPhoneMessage.setTempleteParams(dto.getTemplateParams());
 				newMsgPhoneMessage.setMessageTitle(dto.getMessageTitle());
 				newMsgPhoneMessage.setMessageContent(dto.getMessageContent());
 				newMsgPhoneMessage.setChannelId(channelId);
 				newMsgPhoneMessage.setOperatorId(dto.getOperatorId());
 				newMsgPhoneMessage.setOperatorName(dto.getOperatorName());
+				newMsgPhoneMessage.setIsBatch((byte)1);
 				msgPhoneMessageList.add(newMsgPhoneMessage);
 			}
 			if (msgPhoneMessageList.size() > 0) {
@@ -112,7 +140,7 @@ public class MessagePhoneGroupServiceImpl extends BaseService implements Message
 	}
 	
 	@Override
-	public boolean send(String phone, String content) {
+	public ResultBO send(String phone, String content) {
 		return serviceFactory.getSmsBaseService().sendMessage(MyCache.SMS_DTO, SmsSendTypeEnum.SYSTEM, phone, content);
 	}
 

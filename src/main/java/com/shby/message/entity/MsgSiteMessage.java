@@ -21,9 +21,7 @@ public class MsgSiteMessage {
 
     private String channelId;
 
-    private Short msgStatus;
-
-    private String sendIp;
+    private Byte isBatch;
 
     private Long operatorId;
 
@@ -74,14 +72,14 @@ public class MsgSiteMessage {
     }
 
     public String getTempleteParams() {
-		return templeteParams;
-	}
+        return templeteParams;
+    }
 
-	public void setTempleteParams(String templeteParams) {
-		this.templeteParams = templeteParams;
-	}
+    public void setTempleteParams(String templeteParams) {
+        this.templeteParams = templeteParams == null ? null : templeteParams.trim();
+    }
 
-	public String getMessageTitle() {
+    public String getMessageTitle() {
         return messageTitle;
     }
 
@@ -105,20 +103,12 @@ public class MsgSiteMessage {
         this.channelId = channelId == null ? null : channelId.trim();
     }
 
-    public Short getMsgStatus() {
-        return msgStatus;
+    public Byte getIsBatch() {
+        return isBatch;
     }
 
-    public void setMsgStatus(Short msgStatus) {
-        this.msgStatus = msgStatus;
-    }
-
-    public String getSendIp() {
-        return sendIp;
-    }
-
-    public void setSendIp(String sendIp) {
-        this.sendIp = sendIp == null ? null : sendIp.trim();
+    public void setIsBatch(Byte isBatch) {
+        this.isBatch = isBatch;
     }
 
     public Long getOperatorId() {

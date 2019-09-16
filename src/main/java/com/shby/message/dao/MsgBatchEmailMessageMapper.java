@@ -17,5 +17,6 @@ public interface MsgBatchEmailMessageMapper {
 
     int updateByPrimaryKey(MsgBatchEmailMessage record);
 
+
     List<MsgBatchEmailMessage> selectByBean(MsgBatchEmailMessage msgBatchEmailMessageQ);
 }

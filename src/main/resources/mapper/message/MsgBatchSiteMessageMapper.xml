@@ -7,20 +7,19 @@
     <result column="user_ids" property="userIds" jdbcType="VARCHAR" />
     <result column="user_names" property="userNames" jdbcType="VARCHAR" />
     <result column="template_id" property="templateId" jdbcType="BIGINT" />
-    <result column="templet_params" property="templetParams" jdbcType="VARCHAR" />
+    <result column="templete_params" property="templeteParams" jdbcType="VARCHAR" />
     <result column="message_title" property="messageTitle" jdbcType="VARCHAR" />
     <result column="message_content" property="messageContent" jdbcType="VARCHAR" />
     <result column="channel_Id" property="channelId" jdbcType="VARCHAR" />
-    <result column="msg_status" property="msgStatus" jdbcType="SMALLINT" />
-    <result column="send_ip" property="sendIp" jdbcType="VARCHAR" />
+    <result column="is_batch" property="isBatch" jdbcType="TINYINT" />
     <result column="operator_id" property="operatorId" jdbcType="BIGINT" />
     <result column="operator_name" property="operatorName" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, msg_id, user_ids, user_names, template_id, templet_params, message_title, message_content, 
-    channel_Id, msg_status, send_ip, operator_id, operator_name, create_time, update_time
+    id, msg_id, user_ids, user_names, template_id, templete_params, message_title, message_content, 
+    channel_Id, is_batch, operator_id, operator_name, create_time, update_time
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
@@ -34,17 +33,15 @@
   </delete>
   <insert id="insert" parameterType="com.shby.message.entity.MsgBatchSiteMessage" useGeneratedKeys="true" keyProperty="id">
     insert into msg_batch_site_message (id, msg_id, user_ids, 
-      user_names, template_id, templet_params, 
+      user_names, template_id, templete_params, 
       message_title, message_content, channel_Id, 
-      msg_status, send_ip, operator_id, 
-      operator_name, create_time, update_time
-      )
+      is_batch, operator_id, operator_name, 
+      create_time, update_time)
     values (#{id,jdbcType=BIGINT}, #{msgId,jdbcType=VARCHAR}, #{userIds,jdbcType=VARCHAR}, 
-      #{userNames,jdbcType=VARCHAR}, #{templateId,jdbcType=BIGINT}, #{templetParams,jdbcType=VARCHAR}, 
+      #{userNames,jdbcType=VARCHAR}, #{templateId,jdbcType=BIGINT}, #{templeteParams,jdbcType=VARCHAR}, 
       #{messageTitle,jdbcType=VARCHAR}, #{messageContent,jdbcType=VARCHAR}, #{channelId,jdbcType=VARCHAR}, 
-      #{msgStatus,jdbcType=SMALLINT}, #{sendIp,jdbcType=VARCHAR}, #{operatorId,jdbcType=BIGINT}, 
-      #{operatorName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
-      )
+      #{isBatch,jdbcType=TINYINT}, #{operatorId,jdbcType=BIGINT}, #{operatorName,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.shby.message.entity.MsgBatchSiteMessage" useGeneratedKeys="true" keyProperty="id">
     insert into msg_batch_site_message
@@ -64,8 +61,8 @@
       <if test="templateId != null" >
         template_id,
       </if>
-      <if test="templetParams != null" >
-        templet_params,
+      <if test="templeteParams != null" >
+        templete_params,
       </if>
       <if test="messageTitle != null" >
         message_title,
@@ -76,11 +73,8 @@
       <if test="channelId != null" >
         channel_Id,
       </if>
-      <if test="msgStatus != null" >
-        msg_status,
-      </if>
-      <if test="sendIp != null" >
-        send_ip,
+      <if test="isBatch != null" >
+        is_batch,
       </if>
       <if test="operatorId != null" >
         operator_id,
@@ -111,8 +105,8 @@
       <if test="templateId != null" >
         #{templateId,jdbcType=BIGINT},
       </if>
-      <if test="templetParams != null" >
-        #{templetParams,jdbcType=VARCHAR},
+      <if test="templeteParams != null" >
+        #{templeteParams,jdbcType=VARCHAR},
       </if>
       <if test="messageTitle != null" >
         #{messageTitle,jdbcType=VARCHAR},
@@ -123,11 +117,8 @@
       <if test="channelId != null" >
         #{channelId,jdbcType=VARCHAR},
       </if>
-      <if test="msgStatus != null" >
-        #{msgStatus,jdbcType=SMALLINT},
-      </if>
-      <if test="sendIp != null" >
-        #{sendIp,jdbcType=VARCHAR},
+      <if test="isBatch != null" >
+        #{isBatch,jdbcType=TINYINT},
       </if>
       <if test="operatorId != null" >
         #{operatorId,jdbcType=BIGINT},
@@ -158,8 +149,8 @@
       <if test="templateId != null" >
         template_id = #{templateId,jdbcType=BIGINT},
       </if>
-      <if test="templetParams != null" >
-        templet_params = #{templetParams,jdbcType=VARCHAR},
+      <if test="templeteParams != null" >
+        templete_params = #{templeteParams,jdbcType=VARCHAR},
       </if>
       <if test="messageTitle != null" >
         message_title = #{messageTitle,jdbcType=VARCHAR},
@@ -170,11 +161,8 @@
       <if test="channelId != null" >
         channel_Id = #{channelId,jdbcType=VARCHAR},
       </if>
-      <if test="msgStatus != null" >
-        msg_status = #{msgStatus,jdbcType=SMALLINT},
-      </if>
-      <if test="sendIp != null" >
-        send_ip = #{sendIp,jdbcType=VARCHAR},
+      <if test="isBatch != null" >
+        is_batch = #{isBatch,jdbcType=TINYINT},
       </if>
       <if test="operatorId != null" >
         operator_id = #{operatorId,jdbcType=BIGINT},
@@ -197,12 +185,11 @@
       user_ids = #{userIds,jdbcType=VARCHAR},
       user_names = #{userNames,jdbcType=VARCHAR},
       template_id = #{templateId,jdbcType=BIGINT},
-      templet_params = #{templetParams,jdbcType=VARCHAR},
+      templete_params = #{templeteParams,jdbcType=VARCHAR},
       message_title = #{messageTitle,jdbcType=VARCHAR},
       message_content = #{messageContent,jdbcType=VARCHAR},
       channel_Id = #{channelId,jdbcType=VARCHAR},
-      msg_status = #{msgStatus,jdbcType=SMALLINT},
-      send_ip = #{sendIp,jdbcType=VARCHAR},
+      is_batch = #{isBatch,jdbcType=TINYINT},
       operator_id = #{operatorId,jdbcType=BIGINT},
       operator_name = #{operatorName,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -226,8 +213,8 @@
       <if test="templateId != null" >
         AND template_id = #{templateId,jdbcType=BIGINT}
       </if>
-      <if test="templetParams != null" >
-        AND templet_params = #{templetParams,jdbcType=VARCHAR}
+      <if test="templeteParams != null" >
+        AND templete_params = #{templeteParams,jdbcType=VARCHAR}
       </if>
       <if test="messageTitle != null" >
         AND message_title = #{messageTitle,jdbcType=VARCHAR}
@@ -238,11 +225,8 @@
       <if test="channelId != null" >
         AND channel_Id = #{channelId,jdbcType=VARCHAR}
       </if>
-      <if test="msgStatus != null" >
-        AND msg_status = #{msgStatus,jdbcType=SMALLINT}
-      </if>
-      <if test="sendIp != null" >
-        AND send_ip = #{sendIp,jdbcType=VARCHAR}
+      <if test="isBatch != null" >
+        AND is_batch = #{isBatch,jdbcType=TINYINT}
       </if>
       <if test="operatorId != null" >
         AND operator_id = #{operatorId,jdbcType=BIGINT}
